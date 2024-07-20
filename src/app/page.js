@@ -1,113 +1,165 @@
-import Image from "next/image";
+// Add this at the top of the file to mark it as a client component
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    // Initialize state
+    const [santimPay, setSantimPay] = useState(false);
+    const [tilla, seTilla] = useState(false);
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+    const santimPayHandle = () =>
+    {
+      setSantimPay(!santimPay)
+    }
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+    const tillaHandle = () =>
+      {
+        seTilla(!tilla)
+      }
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+    return (
+        <>
+            <section className="py-5 sticky top-0 bg-gray-800 z-10">
+                <nav className="flex justify-center gap-6 bg-gray-800 text-white shadow-md py-4 rounded-lg">
+                    <Link 
+                        href="/" 
+                        className="text-primary relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full">
+                        Home
+                    </Link>
+                    <Link 
+                        href="/experience" 
+                        className="text-primary relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full">
+                        Experience
+                    </Link>
+                    <Link 
+                        href="/previous-works" 
+                        className="text-primary relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full">
+                        Previous Works
+                    </Link>
+                </nav>
+            </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+            <section className="py-10 bg-gray-900">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div className="text-center md:text-left">
+                            <h1 className="text-3xl md:text-5xl font-bold mb-4 text-primary">
+                                Surafel Kassahun
+                            </h1>
+                            <p className="text-gray-300 text-sm text-center text-secondary">
+                                Fullstack developer based in Ethiopia. Open for both project-based work and collaborations.
+                            </p>
+                        </div>
+                        <div className="relative animate-bounce">
+                            <img 
+                                src="/Bggggpng.png" 
+                                alt="Background" 
+                                className="w-full h-auto rounded-lg shadow-lg" 
+                            />
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+            <section className="py-24" >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mx-auto">
+                    
+                  <div className={`bg-white/50 hover:bg-transparent p-4 rounded-md hover:cursor-pointer transition-all ease-in-out shadow-md ${tilla ? "max-h-48":""} `} onPointerEnter={santimPayHandle} onPointerLeave={santimPayHandle} >
+                       <div>
+                          <div className="flex justify-center items-center max-h-28" > 
+                            <img src="/santimpay-logo.png" alt="Santimpay Logo" className="mb-4 w-32 h-auto"/>
+                          </div>
+                          <div >
+                            <h1 className={`text-xl text-center font-semibold mb-2 ${ santimPay ? "text-primary" : "text-black" }`}>Backend Developer Intern</h1>
+                          </div>
+                       </div>
+                      
+                        {santimPay && (
+                            <p className="text-gray-700 transition-opacity duration-1000 ease-in-out opacity-100">
+                                <ul className="list-disc pl-5 space-y-2 text-secondary">
+                                    <li>Developed and maintained backend systems using Laravel, ensuring robust, scalable, and secure code.</li>
+                                    <li>Utilized MySQL for database management, including designing schemas, writing queries, and optimizing performance.</li>
+                                    <li>Employed Postman for API testing and validation, ensuring all endpoints met functional and security requirements.</li>
+                                    <li>Collaborated with front-end developers and product managers to integrate backend functionality with user interfaces.</li>
+                                    <li>Created and managed various components in Blender for visual data representation and application design.</li>
+                                </ul>
+                            </p>
+                        )}
+                    </div>
+
+                    <div className={`bg-white/50 hover:bg-transparent p-4 rounded-md hover:cursor-pointer transition-all ease-in-out shadow-md ${santimPay ? "max-h-48":""} `} onPointerEnter={tillaHandle} onPointerLeave={tillaHandle} >
+                       <div>
+                          <div className="flex justify-center items-center max-h-28" > 
+                            <img src="/Tilla Logo-01.png" alt="Santimpay Logo" className="mb-4 w-32 h-auto"/>
+                          </div>
+                          <div>
+                            <h1 className={`text-xl text-center font-semibold mb-2 ${ tilla ? "text-primary" : "text-black" }`}>Fullstack Developer</h1>
+                          </div>
+                       </div>
+                      
+                        {tilla && (
+                            <p className="text-gray-700 transition-opacity duration-1000 ease-in-out opacity-100">
+                                <ul className="list-disc pl-5 space-y-2 text-secondary">
+                                    <li>Developed and maintained responsive, user-friendly web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js), enhancing user experience and engagement.</li>
+                                    <li>Implemented complex UI components and features with React.js, ensuring smooth performance and accessibility across various devices and browsers.</li>
+                                    <li>Designed and integrated RESTful APIs, leveraging Postman for API testing and documentation to ensure reliable data exchange between frontend and backend services.</li>
+                                    <li>Managed state and data flow using Redux and Context API, optimizing performance and user interaction.</li>
+                                    <li>Utilized MongoDB and MySQL databases for data storage and retrieval, developing efficient queries and schema designs to meet application requirements.</li>
+                                </ul>
+                            </p>
+                        )}
+                    </div>
+
+                </div>
+            </section>
+
+            <section className="border border-primary border-y-8">
+              <div className="text-center">
+                <h1 className="text-primary text-5xl"> Technologies Experienced </h1>
+              </div>
+              <div className="absolute left-0 p-20">
+                <div className=" flex  sm:grid-cols-5 grid-cols-3 gap-6 " >
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/physics.png'} className="w-20 "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/Firebase.png'} className="w-20  "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/JavaScript.png'} className="w-20  "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/Laravel.png'} className="w-20  "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/MongoDB.png'} className="w-20  "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/MySQL.png'} className="w-20  "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/Node.js.png'} className="w-20  "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/PHP.png'} className="w-20 "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/Postman.png'} className="w-20 "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/Powershell.png'} className="w-20"/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/Tailwind CSS.png'} className="w-20  "/>
+                  </div>
+                  <div className="hover:scale-125 hover:cursor-pointer transition-all duration-300 ease-in-out " >
+                    <img src={'/WordPress.png'} className="w-20  "/>
+                  </div>
+                </div>
+              </div>
+            </section>
+        </>
+    );
 }
