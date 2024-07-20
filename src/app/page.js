@@ -52,7 +52,7 @@ export default function Home() {
                                 Fullstack developer based in Ethiopia. Open for both project-based work and collaborations.
                             </p>
                         </div>
-                        <div className="relative animate-bounce">
+                        <div className="relative animate-none">
                             <img 
                                 src="/Bggggpng.png" 
                                 alt="Background" 
