@@ -221,7 +221,7 @@ const technologies = [
                     Explore More <span className="text-primary">Projects</span>
                   </h1>
                   <p className="w-80 text-xl text-gray-200 italic p-6 bg-blue-800 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:bg-blue-700">
-                    {rightQuote} {rightQuote} The only way to do great work is to love what you do.{leftQuote}{leftQuote} — Steve Jobs
+                    {rightQuote}{rightQuote} The only way to do great work is to love what you do.{leftQuote}{leftQuote} — Steve Jobs
                   </p>
                   <div className="mt-8 flex space-x-4">
                     <button 
