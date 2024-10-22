@@ -305,7 +305,7 @@ const technologies = [
                                       <strong>Intuitive Order Management Interface:</strong> The application provides an easy-to-navigate interface for managing orders. Staff can quickly process orders for dine-in customers, takeout, and delivery, ensuring a smooth workflow and minimizing wait times. The order management system is designed to be user-friendly, allowing staff to focus on customer service rather than navigating complex software.
                                   </li>
                                   <li>
-                                      <strong>Menu Management System:</strong> A robust menu management system allows restaurant owners and managers to easily update menu items, prices, and descriptions in real-time. This feature ensures that customers always have access to the latest offerings and helps in adjusting the menu based on availability or seasonal changes. The system supports easy addition and removal of items, making it flexible to the restaurant's needs.
+                                      <strong>Menu Management System:</strong> A robust menu management system allows restaurant owners and managers to easily update menu items, prices, and descriptions in real-time. This feature ensures that customers always have access to the latest offerings and helps in adjusting the menu based on availability or seasonal changes. The system supports easy addition and removal of items, making it flexible to the restaurants needs.
                                   </li>
                               </ul>
                               <br />
