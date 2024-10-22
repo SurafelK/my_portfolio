@@ -76,7 +76,7 @@ const technologies = [
                                 Fullstack developer based in Ethiopia. Open for both project-based work and collaborations.
                             </p>
                             <div className={`text-gray-500 items-center flex flex-col justify-center align-middle py-10 max-w-xl`}>
-                                <p className={`text-5xl text-secondary`}>❛</p>
+                                <p className={`text-5xl text-secondary`}>P</p>
                                 <p className="text-pretty text-secondary">
                                     As a passionate Fullstack Developer with a strong foundation in both front-end and back-end technologies, I specialize in creating dynamic and user-friendly web applications. With expertise in frameworks such as React, Angular, and Node.js, I excel in transforming complex requirements into intuitive interfaces while ensuring seamless server-side functionality.
                                     My proficiency in database management, RESTful APIs, and cloud services allows me to build scalable and efficient solutions.
@@ -84,7 +84,7 @@ const technologies = [
                                     leveraging my problem-solving skills to deliver high-quality products that enhance user experience and drive business growth.
                                     Collaborative by nature, I thrive in agile environments and enjoy working closely with cross-functional teams to bring innovative ideas to life.
                                 </p>
-                                <p className={`text-5xl text-secondary`}>❜</p>
+                                <p className={`text-5xl text-secondary`}>P</p>
                             </div>
                         </motion.div>
                         <motion.div
