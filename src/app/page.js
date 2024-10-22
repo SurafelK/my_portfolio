@@ -322,7 +322,7 @@ const technologies = [
                           onClick={toggleModal} // Close modal on click
                           aria-label="Close modal"
                       >
-                          &times;
+                          x
                       </button>
                   </div>
               </div>
