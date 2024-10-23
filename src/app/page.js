@@ -9,16 +9,24 @@ export default function Home() {
     // Initialize state for experience cards
     const [cardStates, setCardStates] = useState({ santimPay: false, tilla: false });
     const [isOpen, setIsOpen] = useState(false);
-
+    const [TheradermDetailDescription, setTheradermDetailDescription] = useState(false)
+    const [AvlDetailDescription, setAvlDetailDescription] = useState(false)
     const toggleCard = (key) => {
         setCardStates((prev) => ({ ...prev, [key]: !prev[key] }));
     };
 
     const [detailDesciption, setDetailDescription] = useState(false)
     const [projects, setProjects] = useState(false)
+
+
     const toggleModal = () => {
         setIsOpen(!isOpen);
     };
+
+    const toggleProjects = () =>
+    {
+      setProjects(!projects)
+    }
     const rightQuote = '❛'
     const leftQuote = '❜'
 
@@ -45,6 +53,49 @@ const technologies = [
     const [hoveredTech, setHoveredTech] = useState(null);
     const [isHovered, setIsHovered] = useState(false); // State to track hover status
     const [contactUsPopup, setContactUsPopup] = useState(false)
+    const [isTheradermOpen, setisTheradermOpen] = useState(false)
+
+    const AccordionItem = ({ question, answer, isOpen, onToggle }) => (
+      <div className="border-b border-zinc-300">
+        <button
+          className="flex justify-between items-center w-full p-4 transition duration-200 ease-in-out bg-zinc-100 text-primary-foreground hover:bg-white/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+          onClick={onToggle}
+        >
+          <span className="font-semibold text-lg">{question}</span>
+          <svg
+            className={`w-6 h-6 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        {isOpen && (
+          <div className="p-4 bg-card rounded-b-md shadow-md bg-zinc-300">
+            <p className="text-sm text-black ">{answer}</p>
+          </div>
+        )}
+      </div>
+    );
+    
+
+    const [openIndex, setOpenIndex] = useState(null);
+
+    const toggleItem = (index) => {
+      setOpenIndex(openIndex === index ? null : index);
+    };
+
+    const [isAVlOpen, setisAVlOpen] = useState(false)
+  
+    const items = [
+      { question: 'What are the main responsibilities of a Full-Stack Developer?', answer: 'Full-Stack Developers are responsible for both front-end and back-end development, designing user interfaces, managing databases, and ensuring seamless integration between client-side and server-side components.' },
+      { question: 'Which technologies are commonly used by Full-Stack Developers?', answer: 'Full-Stack Developers typically use HTML, CSS, and JavaScript for front-end development, along with frameworks like React or Angular. For back-end, they often work with Node.js, Express, Python, Ruby on Rails, or PHP, and databases such as MongoDB, MySQL, or PostgreSQL.' },
+      { question: 'How important is it for a Full-Stack Developer to understand both front-end and back-end?', answer: 'It is crucial for a Full-Stack Developer to have a solid understanding of both front-end and back-end technologies, as it enables them to build complete applications, troubleshoot issues, and communicate effectively with the team.' },
+      { question: 'What skills are essential for a Full-Stack Developer?', answer: 'Essential skills for a Full-Stack Developer include proficiency in programming languages (like JavaScript, Python, or Ruby), familiarity with web development frameworks, database management, version control (like Git), and strong problem-solving abilities.' },
+      { question: 'What is the difference between a Full-Stack Developer and a Software Engineer?', answer: 'A Full-Stack Developer specializes in both front-end and back-end development of web applications, while a Software Engineer may focus on broader software development principles and can work on various types of software projects beyond web applications.' },
+    ];
+    
     return (
         <>
             {/* Navigation */}
@@ -105,65 +156,101 @@ const technologies = [
                     </div>
                 </div>
             </section>
+            
+               {/* FAQ */}
+               {/* <div className="max-w-md flex justify-center mb-5">
+                <div className="border border-zinc-300 rounded-lg shadow-md flex flex-col items-center">
+                  {items.map((item, index) => (
+                    <AccordionItem
+                      key={index}
+                      question={item.question}
+                      answer={item.answer}
+                      isOpen={openIndex === index}
+                      onToggle={() => toggleItem(index)}
+                    />
+                  ))}
+                </div>
+              </div> */}
+
 
             {/* Experience Cards */}
-            <section className="py-20">
-                <motion.div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {[
-                        {
-                            image: "/santimpay-logo.png",
-                            title: "Backend Developer Intern",
-                            description: [
-                                "Developed and maintained backend systems using Laravel.",
-                                "Utilized MySQL for database management.",
-                                "Employed Postman for API testing and validation.",
-                                "Collaborated with front-end developers and product managers.",
-                                "Created and managed components in Blender."
-                            ],
-                            key: "santimPay"
-                        },
-                        {
-                            image: "/Tilla Logo-01.png",
-                            title: "Fullstack Developer",
-                            description: [
-                                "Developed responsive web applications using the MERN stack.",
-                                "Implemented UI components with React.js.",
-                                "Designed and integrated RESTful APIs.",
-                                "Managed state using Redux and Context API.",
-                                "Utilized MongoDB and MySQL for data storage."
-                            ],
-                            key: "tilla"
-                        }
-                    ].map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className={`bg-white p-6 rounded-lg border transition transform hover:-translate-y-2 hover:shadow-lg ${cardStates[item.key] ? "max-h-96" : "max-h-56"} cursor-pointer`}
-                            onPointerEnter={() => toggleCard(item.key)}
-                            onPointerLeave={() => toggleCard(item.key)}
-                            variants={fadeIn("up", 0.5)}
-                            initial="hidden"
-                            whileInView={"show"}
-                            viewport={{ once: "true", amount: 0.7 }}
-                        >
-                            <div className="flex justify-center items-center mb-4">
-                                <img src={item.image} alt={`${item.title} Logo`} className="w-32 h-auto" />
-                            </div>
-                            <h1 className={`text-xl text-center font-bold mb-3 ${cardStates[item.key] ? "text-primary" : "text-black"}`}>
-                                {item.title}
-                            </h1>
-                            {cardStates[item.key] && (
-                                <ul className="list-disc pl-5 text-gray-800 text-sm transition-opacity duration-700">
-                                    {item.description.map((desc, idx) => (
-                                        <motion.li key={idx} variants={fadeIn("up", 0.5)} initial="hidden" whileInView={"show"}>
-                                            {desc}
-                                        </motion.li>
-                                    ))}
-                                </ul>
-                            )}
-                        </motion.div>
-                    ))}
-                </motion.div>
+            <section className="py-20 bg-gray-100 relative">
+                {/* Horizontal line */}
+                
+
+                {/* Container to hold the experiences */}
+                <div className="container mx-auto max-w-6xl flex flex-col items-center">
+                    {/* Experience cards */}
+                    <ul className="flex gap-16 relative">
+                        {[
+                            {
+                                image: "/santimpay-logo.png",
+                                title: "Backend Developer",
+                                position: "Intern",
+                                description: [
+                                    "Developed and maintained backend systems using Laravel.",
+                                    "Utilized MySQL for database management.",
+                                    "Employed Postman for API testing and validation.",
+                                    "Collaborated with front-end developers and product managers.",
+                                    "Created and managed components in Blender.",
+                                ],
+                                key: "santimPay",
+                            },
+                            {
+                                image: "/Tilla Logo-01.png",
+                                title: "Fullstack Developer",
+                                position: "Jr Developer",
+                                description: [
+                                    "Developed responsive web applications using the MERN stack.",
+                                    "Implemented UI components with React.js.",
+                                    "Designed and integrated RESTful APIs.",
+                                    "Managed state using Redux and Context API.",
+                                    "Utilized MongoDB and MySQL for data storage.",
+                                ],
+                                key: "tilla",
+                            },
+                        ].map((item, index) => (
+                            <li key={index} className="relative flex flex-col items-center">
+                                <motion.div
+                                    className={`bg-white p-6 rounded-lg border border-gray-200 transition transform hover:-translate-y-2 hover:shadow-xl duration-300 relative cursor-pointer`}
+                                    onPointerEnter={() => toggleCard(item.key)}
+                                    onPointerLeave={() => toggleCard(item.key)}
+                                    variants={fadeIn("up", 0.5)}
+                                    initial="hidden"
+                                    whileInView={"show"}
+                                    viewport={{ once: "true", amount: 0.7 }}
+                                >
+                                    <div className="flex justify-center items-center mb-6">
+                                        <img src={item.image} alt={`${item.title} Logo`} className="w-28 h-auto" />
+                                    </div>
+                                    <h1 className={`text-2xl text-center font-semibold mb-4 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
+                                        {item.title}
+                                    </h1>
+                                    <h1 className={`text-xl text-center font-light mb-4 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
+                                        {item.position}
+                                    </h1>
+                                    {cardStates[item.key] && (
+                                        <ul className="list-disc pl-5 text-gray-700 text-sm transition-opacity duration-700">
+                                            {item.description.map((desc, idx) => (
+                                                <motion.li key={idx} variants={fadeIn("up", 0.5)} initial="hidden" whileInView={"show"} className="flex items-center mb-2">
+                                                    <span className="mr-2 text-primary text-center">•</span>
+                                                    {desc}
+                                                </motion.li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </motion.div>
+
+                                {/* Disc indicator on the horizontal line */}
+                                <div className="w-4 h-4 bg-primary rounded-full absolute -top-8"></div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </section>
+
+
+
 
             {/* Technologies */}
             
@@ -198,21 +285,7 @@ const technologies = [
                   ))}
                 </div>
               </div>
-              <style jsx>{`
-                @keyframes scroll {
-                  0% { transform: translateX(100%); }
-                  100% { transform: translateX(-50%); } // Adjusted to -50% for partial exit
-                }
-
-                .animate-scroll {
-                  animation: scroll 15s linear infinite;
-                }
-
-                .animate-paused {
-                  animation: scroll 15s linear infinite;
-                  animation-play-state: paused; // Pause animation on hover
-                }
-              `}</style>
+              
             </section>
 
             <div className="w-full bg-gradient-to-r from-blue-900 to-blue-950 py-16">
@@ -225,7 +298,7 @@ const technologies = [
                   </p>
                   <div className="mt-8 flex space-x-4">
                     <button 
-                      onClick={() => setProjects(true)}
+                      onClick={toggleProjects}
                       className="bg-white text-blue-900 font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transition duration-200 transform ">
                       View All Projects
                     </button>
@@ -240,36 +313,96 @@ const technologies = [
               </div>
 
                   {/* Projects */}
-         { projects && (
-             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
-             <div className="relative group transition-transform transform hover:scale-105 duration-300 rounded-lg overflow-hidden shadow-lg">
-               <img 
-                 src="/Hotel.png" 
-                 className="w-full h-64 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 cursor-pointer" 
-                 alt="Restaurant POS System" 
-                 onClick={toggleModal} // Toggle modal on click
-               />
-               <div className="hidden group-hover:block absolute inset-0 bg-black bg-opacity-70 transition-opacity duration-300"></div>
-               <motion.div
-                variants={fadeIn("up", 0)} initial="hidden" whileInView={"show"}
-                 className="hidden group-hover:flex absolute inset-0 flex-col items-center justify-center text-center text-white px-4 py-4 rounded-lg transition-transform transform scale-95 group-hover:scale-100 duration-300"
-               >
-                 <span className="text-lg font-bold mb-2">
-                   Restaurant POS System
-                 </span>
-                 <span className="text-sm mb-4">
-                   A desktop application built using Electron, MongoDB, Express, React, and Node.js to streamline restaurant operations. Key features include user authentication with role-based access, an intuitive order management interface for dine-in, takeout, and delivery, and a menu management system for easy item updates.
-                 </span>
-                 <button 
-                   className="mt-4 bg-white text-black px-5 py-2 rounded-md shadow-md hover:bg-gray-200 transition-colors duration-200"
-                   onClick={toggleModal}
-                 >
-                   Learn More
-                 </button>
-               </motion.div>
-             </div>
-           </div>
-         ) }
+                  {projects && (
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6 max-w-7xl mx-auto">
+    {/* Project 1 */}
+    <div className="relative group transition-transform transform hover:scale-105 duration-300 rounded-lg overflow-hidden shadow-lg bg-gray-800 hover:shadow-2xl">
+      <img
+        src="/Hotel.png"
+        className="w-full h-64 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 cursor-pointer"
+        alt="Restaurant POS System"
+        onClick={toggleModal}
+      />
+      <div className="hidden group-hover:block absolute inset-0 bg-black bg-opacity-70 transition-opacity duration-300"></div>
+      <motion.div
+        variants={fadeIn("up", 0)}
+        initial="hidden"
+        whileInView={"show"}
+        className="hidden group-hover:flex absolute inset-0 flex-col items-center justify-center text-center text-white px-6 py-4 rounded-lg transition-transform transform scale-95 group-hover:scale-100 duration-300"
+      >
+        <span className="text-xl font-bold mb-2">Restaurant POS System</span>
+        <span className="text-sm mb-4">
+          A desktop application built using Electron, MongoDB, Express, React, and Node.js to streamline restaurant operations. Key features include user authentication with role-based access, an intuitive order management interface for dine-in, takeout, and delivery, and a menu management system for easy item updates.
+        </span>
+        <button
+          className="mt-4 bg-blue-600 text-white px-5 py-2 rounded-md shadow-md hover:bg-blue-500 transition-colors duration-200 transform hover:scale-105"
+          onClick={toggleModal}
+        >
+          Learn More
+        </button>
+      </motion.div>
+    </div>
+
+    {/* Project 2 */}
+    <div className="relative group transition-transform transform hover:scale-105 duration-300 rounded-lg overflow-hidden shadow-lg bg-gray-800 hover:shadow-2xl">
+      <iframe
+        src="https://avl-swim.vercel.app/"
+        style={{ width: '100%', height: '100%', border: 'none' }}
+        title="Embedded Website"
+        className="transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+      />
+      <div className="hidden group-hover:block absolute inset-0 bg-black bg-opacity-70 transition-opacity duration-300"></div>
+      <motion.div
+        variants={fadeIn("up", 0)}
+        initial="hidden"
+        whileInView={"show"}
+        className="hidden group-hover:flex absolute inset-0 flex-col items-center justify-center text-center text-white px-6 py-4 rounded-lg transition-transform transform scale-95 group-hover:scale-100 duration-300"
+      >
+        <span className="text-xl font-bold mb-2">AVL</span>
+        <span className="text-sm mb-4">
+          AVL is a project developed for Araya Venture Lab, showcasing innovative solutions tailored for efficient data processing and insightful analytics.
+        </span>
+        <button
+          className="mt-4 bg-blue-600 text-white px-5 py-2 rounded-md shadow-md hover:bg-blue-500 transition-colors duration-200 transform hover:scale-105"
+          onClick={() => setisAVlOpen(true)}
+        >
+          Learn More
+        </button>
+      </motion.div>
+    </div>
+
+    {/* Project 3 */}
+    <div className="relative group transition-transform transform hover:scale-105 duration-300 rounded-lg overflow-hidden shadow-lg bg-gray-800 hover:shadow-2xl">
+      <iframe
+        src="https://www.theradermethiopia.com/"
+        style={{ width: '100%', height: '100%', border: 'none' }}
+        title="Embedded Website"
+        className="transition-transform duration-300 ease-in-out transform group-hover:scale-105"
+      />
+      <div className="hidden group-hover:block absolute inset-0 bg-black bg-opacity-70 transition-opacity duration-300"></div>
+      <motion.div
+        variants={fadeIn("up", 0)}
+        initial="hidden"
+        whileInView={"show"}
+        className="hidden group-hover:flex absolute inset-0 flex-col items-center justify-center text-center text-white px-6 py-4 rounded-lg transition-transform transform scale-95 group-hover:scale-100 duration-300"
+      >
+        <span className="text-xl font-bold mb-2">Theraderm Ethiopia</span>
+        <span className="text-sm mb-4">
+          A landing page developed for Tilla Africa, providing an engaging web presence.
+        </span>
+        <button
+          className="mt-4 bg-blue-600 text-white px-5 py-2 rounded-md shadow-md hover:bg-blue-500 transition-colors duration-200 transform hover:scale-105"
+          onClick={() => setisTheradermOpen(true)}
+        >
+          Learn More
+        </button>
+      </motion.div>
+    </div>
+  </div>
+)}
+
+
+
 
 
           {/* Modal for Enlarged Image */}
@@ -333,6 +466,145 @@ const technologies = [
               </div>
           )}
 
+        {/* AVL Popup */}
+        {isAVlOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90"
+          role="dialog"
+          aria-modal="true"
+          onKeyDown={(e) => e.key === 'Escape' && setisAVlOpen(false)} // Close on Esc key
+          onMouseEnter={() => setAvlDetailDescription(true)} // Show details on hover
+          onMouseLeave={() => setAvlDetailDescription(false)} // Hide details on mouse leave
+        >
+          <div className="relative w-11/12 md:w-3/4 lg:w-3/4 xl:w-3/4 h-[90%] bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300">
+            <iframe
+              src="https://avl-swim.vercel.app/" // Replace with the URL you want to display
+              style={{ width: '100%', height: '100%', border: 'none' }}
+              title="Embedded Website"
+              className="rounded-t-lg"
+            />
+
+            <motion.div
+              variants={fadeIn("up", 0)}
+              initial="hidden"
+              whileInView="show"
+              className={`${
+                AvlDetailDescription ? "hidden" : "flex"
+              } absolute inset-0 flex-col items-center justify-center text-center text-white p-4`}
+              style={{ background: "rgba(0, 0, 0, 0.7)" }} // Darker background for better contrast
+            >
+              <div className="max-w-full h-[50%] p-4 rounded-lg shadow-lg  overflow-hidden">
+                <h1 className="text-2xl md:text-3xl font-bold mb-2 text-center text-white">AVL System</h1>
+                <p className="text-sm md:text-base mb-2 text-gray-200">
+                  The <strong className="text-blue-400">AVL System</strong> is a comprehensive web-based application designed to facilitate efficient management between teachers and students. Developed using a modern technology stack, including 
+                  <strong className="text-blue-400"> Electron</strong>, 
+                  <strong className="text-blue-400"> MongoDB</strong>, 
+                  <strong className="text-blue-400"> Express</strong>, 
+                  <strong className="text-blue-400"> React</strong>, and 
+                  <strong className="text-blue-400"> Node.js</strong>, this application provides an innovative solution to streamline academic processes.
+                </p>
+                <h2 className="text-sm md:text-base font-semibold mb-2 text-gray-300">Key Features:</h2>
+                <ul className="list-disc pl-5 text-gray-200 mb-2 text-sm md:text-base">
+                  {[
+                    "User Authentication with Role-Based Access: A secure system allowing staff to log in with unique credentials. Role-based access control enhances security by managing permissions effectively.",
+                    "Dynamic Content Management: Enables real-time updates of menu items, prices, and descriptions, ensuring customers access the latest offerings.",
+                    "Customer Feedback System: Collects customer feedback and reviews, allowing the restaurant to improve services and enhance customer satisfaction.",
+                    "Promotions and Discounts Management: Allows staff to create and manage promotional campaigns and discounts, helping to boost sales and customer engagement.",
+                    "Detailed Sales Reporting: Generates comprehensive sales reports to analyze performance and identify trends for better decision-making.",
+                    "Mobile-Friendly Interface: Offers a responsive design for seamless access on tablets and smartphones, improving usability for staff on the go.",
+                    "Cloud Backup and Data Security: Ensures that data is securely backed up to the cloud, minimizing the risk of data loss and ensuring business continuity."
+                  ].map((feature, index) => (
+                    <li key={index} className="mb-1">
+                      <strong className="text-blue-400">{feature.split(":")[0]}:</strong> {feature.split(":")[1]}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+
+            <button
+              className="absolute top-4 right-4 text-white text-2xl bg-red-600 rounded-full p-2 hover:bg-red-700 transition duration-200 shadow-md transform hover:scale-110"
+              onClick={() => setisAVlOpen(false)} // Close modal on click
+              aria-label="Close modal"
+            >
+              &times;
+            </button>
+
+            <button
+              className="absolute top-4 left-4 text-white text-2xl bg-blue-600 rounded-full p-2 hover:bg-blue-700 transition duration-200 shadow-md transform hover:scale-110"
+              onClick={() => window.open("https://avl-swim.vercel.app/", "_blank")} // Open link in a new tab
+              aria-label="Visit AVL System"
+            >
+              Visit
+            </button>
+          </div>
+        </div>
+      )}
+
+        {isTheradermOpen && (
+          <div
+            className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90"
+            role="dialog"
+            aria-modal="true"
+            onKeyDown={(e) => e.key === 'Escape' && setisTheradermOpen(false)} // Close on Esc key
+            onMouseEnter={() => setTheradermDetailDescription(true)} // Show details on hover
+            onMouseLeave={() => setTheradermDetailDescription(false)} // Hide details on mouse leave
+          >
+            <div className="relative w-11/12 md:w-3/4 lg:w-3/4 xl:w-3/4 h-[90%] bg-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 duration-300">
+              <iframe
+                src="https://www.theradermethiopia.com/" // Replace with the URL you want to display
+                style={{ width: '100%', height: '100%', border: 'none' }}
+                title="Embedded Website"
+                className="rounded-t-lg"
+              />
+
+              <motion.div
+                variants={fadeIn("up", 0)}
+                initial="hidden"
+                whileInView="show"
+                className={`${
+                  TheradermDetailDescription ? "hidden" : "flex"
+                } absolute inset-0 flex-col items-center justify-center text-center text-white p-4`}
+                style={{ background: "rgba(0, 0, 0, 0.7)" }} // Darker background for better contrast
+              >
+                <div className="max-w-full h-[50%] p-4 rounded-lg shadow-lg overflow-hidden">
+                  <h1 className="text-2xl md:text-3xl font-bold mb-2 text-center text-white">Theraderm Ethiopia</h1>
+                  <p className="text-sm md:text-base mb-2 text-gray-200">
+                    The <strong className="text-blue-400">Theraderm Ethiopia</strong> project is designed to provide comprehensive skin care solutions, highlighting various treatments and services offered by Theraderm. This platform serves as a user-friendly interface for potential clients seeking quality skin care services.
+                  </p>
+                  <h2 className="text-sm md:text-base font-semibold mb-2 text-gray-300">Key Features:</h2>
+                  <ul className="list-disc pl-5 text-gray-200 mb-2 text-sm md:text-base">
+                    {[
+                      "User-Friendly Interface: Designed to ensure ease of navigation for users looking for skin care services.",
+                      "Responsive Design: Optimized for mobile devices to provide accessibility to clients on the go.",
+                     
+                    ].map((feature, index) => (
+                      <li key={index} className="mb-1">
+                        <strong className="text-blue-400">{feature.split(":")[0]}:</strong> {feature.split(":")[1]}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+
+              <button
+                className="absolute top-4 right-4 text-white text-2xl bg-red-600 rounded-full p-2 hover:bg-red-700 transition duration-200 shadow-md transform hover:scale-110"
+                onClick={() => setisTheradermOpen(false)} // Close modal on click
+                aria-label="Close modal"
+              >
+                &times;
+              </button>
+
+              <button
+                className="absolute top-4 left-4 text-white text-2xl bg-blue-600 rounded-full p-2 hover:bg-blue-700 transition duration-200 shadow-md transform hover:scale-110"
+                onClick={() => window.open("https://www.theradermethiopia.com/", "_blank")} // Open link in a new tab
+                aria-label="Visit Theraderm Ethiopia"
+              >
+                Visit
+              </button>
+            </div>
+          </div>
+        )}
           { contactUsPopup && (
             <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
               <div class="max-w-md mx-auto p-6 bg-card rounded-lg shadow-lg">
@@ -347,43 +619,95 @@ const technologies = [
                       placeholder="Your Name"
                       required
                       class="w-full px-3 py-2 placeholder-input text-black bg-input border focus:ring focus:ring-primary  rounded-md focus:outline-none"
-   />
+      />
+                      </div>
+                      <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-primary">Email</label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          placeholder="Your Email"
+                          required
+                          class="w-full px-3 py-2 placeholder-input text-black bg-white rounded-md focus:outline-none focus:ring focus:ring-primary "
+                        />
+                      </div>
+                      <div class="mb-4">
+                        <label for="message" class="block text-sm font-medium text-primary">Message</label>
+                        <textarea
+                          id="message"
+                          name="message"
+                          rows="4"
+                          placeholder="Your Message"
+                          required
+                          class="w-full px-3 py-2 placeholder-input  bg-input rounded-md focus:outline-none focus:ring focus:ring-primary text-black"
+                        ></textarea>
+                      </div>
+                      <button type="submit" class="w-full bg-primary text-primary-foreground py-2 rounded-md hover:bg-primary/80 transition-colors duration-300">Send</button>
+                    </form>
                   </div>
-                  <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-primary">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      placeholder="Your Email"
-                      required
-                      class="w-full px-3 py-2 placeholder-input text-black bg-white rounded-md focus:outline-none focus:ring focus:ring-primary "
-                    />
-                  </div>
-                  <div class="mb-4">
-                    <label for="message" class="block text-sm font-medium text-primary">Message</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="4"
-                      placeholder="Your Message"
-                      required
-                      class="w-full px-3 py-2 placeholder-input  bg-input rounded-md focus:outline-none focus:ring focus:ring-primary text-black"
-                    ></textarea>
-                  </div>
-                  <button type="submit" class="w-full bg-primary text-primary-foreground py-2 rounded-md hover:bg-primary/80 transition-colors duration-300">Send</button>
-                </form>
+                      <button
+                    className="absolute top-4 right-4 text-white text-2xl bg-red-500 rounded-full p-2 hover:bg-red-700 transition duration-200 shadow-md"
+                      onClick={() => setContactUsPopup(false) } // Close modal on click
+                      aria-label="Close modal"
+                      >
+                          &times;
+                </button>
               </div>
-                  <button
-                className="absolute top-4 right-4 text-white text-2xl bg-red-500 rounded-full p-2 hover:bg-red-700 transition duration-200 shadow-md"
-                  onClick={() => setContactUsPopup(false) } // Close modal on click
-                  aria-label="Close modal"
-                  >
-                      &times;
-            </button>
-          </div>
-          ) }
+              ) }
 
+           
+
+              {/* Footer */}
+              <footer className="bg-gray-900 text-white py-8 mt-10">
+                <div className="container mx-auto px-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Column 1: About Me */}
+                    <div>
+                      <h4 className="font-semibold text-lg mb-4">About Me</h4>
+                      <p className="text-sm">
+                        I am a passionate developer with a knack for creating intuitive and dynamic user experiences. Let's work together!
+                      </p>
+                    </div>
+
+                    {/* Column 2: Services */}
+                    <div>
+                      <h4 className="font-semibold text-lg mb-4">Services</h4>
+                      <ul className="text-sm">
+                        <li className="mb-2"><a href="#" className="hover:text-gray-400">Web Development</a></li>
+                        <li className="mb-2"><a href="#" className="hover:text-gray-400">UI/UX Design</a></li>
+                        <li className="mb-2"><a href="#" className="hover:text-gray-400">Mobile App Development</a></li>
+                        <li className="mb-2"><a href="#" className="hover:text-gray-400">SEO Optimization</a></li>
+                      </ul>
+                    </div>
+
+                    {/* Column 3: Contact */}
+                    <div>
+                      <h4 className="font-semibold text-lg mb-4">Contact Me</h4>
+                      <ul className="text-sm">
+                        <li className="mb-2">Email: <a href="mailto:your-email@example.com" className="hover:text-gray-400">your-email@example.com</a></li>
+                        <li className="mb-2">Phone: <a href="tel:+123456789" className="hover:text-gray-400">+123 456 789</a></li>
+                        <li className="mb-2">Location: City, Country</li>
+                      </ul>
+                    </div>
+
+                    {/* Column 4: Follow Me */}
+                    <div>
+                      <h4 className="font-semibold text-lg mb-4">Follow Me</h4>
+                      <ul className="flex space-x-4">
+                        <li><a href="#" className="hover:text-gray-400">LinkedIn</a></li>
+                        <li><a href="#" className="hover:text-gray-400">GitHub</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Twitter</a></li>
+                        <li><a href="#" className="hover:text-gray-400">Instagram</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+                  <p>© 2024 Your Name. All rights reserved.</p>
+                </div>
+              </footer>
         </>
     );
 }
