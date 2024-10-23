@@ -694,7 +694,7 @@ const technologies = [
                     <div>
                       <h4 className="font-semibold text-lg mb-4 text-primary">About Me</h4>
                       <p className="text-sm">
-                        I am a passionate developer with a knack for creating intuitive and dynamic user experiences. Let's work together!
+                        I am a passionate developer with a knack for creating intuitive and dynamic user experiences. Lets work together!
                       </p>
                     </div>
 
