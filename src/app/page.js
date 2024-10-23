@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
+import { Github, GithubIcon, Instagram, Linkedin, Mail, Twitter, TwitterIcon } from "lucide-react";
 
 export default function Home() {
     // Initialize state for experience cards
@@ -174,80 +175,98 @@ const technologies = [
 
 
             {/* Experience Cards */}
-            <section className="py-20 bg-gray-100 relative">
-                {/* Horizontal line */}
-                
+            <section className="flex flex-col justify-center py-20 bg-gray-100 relative">
+    <div className="flex justify-start px-10 md:px-20 lg:px-44 mb-12">
+        <h3 className="text-start text-primary text-5xl font-semibold">Work Experience</h3>
+    </div>
+    <hr className="border-gray-300 mb-10" />
 
-                {/* Container to hold the experiences */}
-                <div className="container mx-auto max-w-6xl flex flex-col items-center">
-                    {/* Experience cards */}
-                    <ul className="flex gap-16 relative">
-                        {[
-                            {
-                                image: "/santimpay-logo.png",
-                                title: "Backend Developer",
-                                position: "Intern",
-                                description: [
-                                    "Developed and maintained backend systems using Laravel.",
-                                    "Utilized MySQL for database management.",
-                                    "Employed Postman for API testing and validation.",
-                                    "Collaborated with front-end developers and product managers.",
-                                    "Created and managed components in Blender.",
-                                ],
-                                key: "santimPay",
-                            },
-                            {
-                                image: "/Tilla Logo-01.png",
-                                title: "Fullstack Developer",
-                                position: "Jr Developer",
-                                description: [
-                                    "Developed responsive web applications using the MERN stack.",
-                                    "Implemented UI components with React.js.",
-                                    "Designed and integrated RESTful APIs.",
-                                    "Managed state using Redux and Context API.",
-                                    "Utilized MongoDB and MySQL for data storage.",
-                                ],
-                                key: "tilla",
-                            },
-                        ].map((item, index) => (
-                            <li key={index} className="relative flex flex-col items-center">
-                                <motion.div
-                                    className={`bg-white p-6 rounded-lg border border-gray-200 transition transform hover:-translate-y-2 hover:shadow-xl duration-300 relative cursor-pointer`}
-                                    onPointerEnter={() => toggleCard(item.key)}
-                                    onPointerLeave={() => toggleCard(item.key)}
-                                    variants={fadeIn("up", 0.5)}
-                                    initial="hidden"
-                                    whileInView={"show"}
-                                    viewport={{ once: "true", amount: 0.7 }}
-                                >
-                                    <div className="flex justify-center items-center mb-6">
-                                        <img src={item.image} alt={`${item.title} Logo`} className="w-28 h-auto" />
-                                    </div>
-                                    <h1 className={`text-2xl text-center font-semibold mb-4 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
-                                        {item.title}
-                                    </h1>
-                                    <h1 className={`text-xl text-center font-light mb-4 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
-                                        {item.position}
-                                    </h1>
-                                    {cardStates[item.key] && (
-                                        <ul className="list-disc pl-5 text-gray-700 text-sm transition-opacity duration-700">
-                                            {item.description.map((desc, idx) => (
-                                                <motion.li key={idx} variants={fadeIn("up", 0.5)} initial="hidden" whileInView={"show"} className="flex items-center mb-2">
-                                                    <span className="mr-2 text-primary text-center">•</span>
-                                                    {desc}
-                                                </motion.li>
-                                            ))}
-                                        </ul>
-                                    )}
-                                </motion.div>
+    {/* Container to hold the experiences */}
+    <div className="container mx-auto max-w-6xl flex flex-col items-center">
+        {/* Experience cards */}
+        <ul className="flex flex-col md:flex-row gap-10 relative">
+            {[
+                {
+                  image: "/santimpay-logo.png",
+                  title: "Backend Developer",
+                  date: "Jul 2023 - Mar 2024",
+                  position: "Intern",
+                  description: [
+                      "Developed and maintained backend systems using Laravel.",
+                      "Utilized MySQL for database management.",
+                      "Employed Postman for API testing and validation.",
+                      "Collaborated with front-end developers and product managers.",
+                      "Created and managed components in Blender.",
+                      "Assisted in designing RESTful APIs for seamless front-end integration.",
+                      "Implemented authentication and authorization mechanisms for secure user access.",
+                      "Participated in code reviews and contributed to improving code quality.",
+                      "Documented API endpoints and technical specifications for team reference.",
+                      "Gained experience in version control using Git and GitHub."
+                  ],
+                  key: "santimPay"
+              },
+              
+                {
+                  image: "/Tilla Logo-01.png",
+                  title: "Fullstack Developer",
+                  date: "Sep 2023 - Present",
+                  position: "Jr Developer",
+                  description: [
+                      "Developed responsive web applications using the MERN stack.",
+                      "Implemented UI components with React.js.",
+                      "Designed and integrated RESTful APIs.",
+                      "Managed state using Redux and Context API.",
+                      "Utilized MongoDB and MySQL for data storage.",
+                      "Collaborated with designers to enhance user experience and interface design.",
+                      "Conducted code reviews and participated in Agile development processes.",
+                      "Integrated third-party services and APIs for additional functionalities.",
+                      "Wrote unit and integration tests to ensure application reliability.",
+                      "Optimized application performance through code refactoring and profiling.",
+                      "Participated in team meetings and contributed to project planning."
+                  ],
+                  key: "tilla"
+              }
+              ,
+            ].map((item, index) => (
+                <li key={index} className="relative flex flex-col items-center w-full md:w-1/2">
+                    <motion.div
+                        className={`bg-white p-8 rounded-lg border border-gray-200 shadow-md transition transform hover:-translate-y-2 hover:shadow-xl duration-300 relative cursor-pointer`}
+                        onPointerEnter={() => toggleCard(item.key)}
+                        onPointerLeave={() => toggleCard(item.key)}
+                        variants={fadeIn("up", 0.5)}
+                        initial="hidden"
+                        whileInView={"show"}
+                        viewport={{ once: "true", amount: 0.7 }}
+                    >
+                        <div className="flex justify-center items-center mb-6">
+                            <img src={item.image} alt={`${item.title} Logo`} className="w-28 h-auto" />
+                        </div>
+                        <h1 className={`text-2xl text-center font-semibold mb-2 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
+                            {item.title}
+                        </h1>
+                        <h1 className={`text-xs text-center font-light text-zinc-400 mb-2 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
+                            {item.date}
+                        </h1>
+                        
+                        {cardStates[item.key] && (
+                            <ul className="list-disc pl-5 text-gray-700 text-sm transition-opacity duration-700">
+                                {item.description.map((desc, idx) => (
+                                    <motion.li key={idx} variants={fadeIn("up", 0.5)} initial="hidden" whileInView={"show"} className="flex items-center mb-2">
+                                        <span className="mr-2 text-primary">•</span>
+                                        {desc}
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        )}
+                    </motion.div>
 
-                                {/* Disc indicator on the horizontal line */}
-                                <div className="w-4 h-4 bg-primary rounded-full absolute -top-8"></div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </section>
+                    {/* Disc indicator on the horizontal line */}
+                    <div className="w-4 h-4 bg-primary rounded-full absolute -top-8"></div>
+                </li>
+            ))}
+        </ul>
+    </div>
+</section>
 
 
 
@@ -256,28 +275,32 @@ const technologies = [
             
             <section className="py-20 bg-off-white border-t-8 border-bright-green cursor-pointer overflow-hidden">
               <div className="container mx-auto text-center">
-                <h1 className="text-primary text-5xl font-bold mb-12">Technologies Experienced</h1>
-                <div className={`flex flex-nowrap w-full ${isHovered ? 'animate-paused' : 'animate-scroll'}`}>
+                <h1 className="text-primary text-5xl font-bold mb-12 transition-all duration-300 hover:scale-105">
+                  Technologies Experienced
+                </h1>
+                <div
+                  className={`flex flex-wrap justify-center ${isHovered ? 'animate-paused' : 'animate-scroll'}`} // Enable wrapping
+                >
                   {technologies.map((tech, idx) => (
                     <motion.div
                       key={idx}
-                      className="relative mx-4" // Add margin for spacing between icons
+                      className="relative mx-4 mb-8 transition-transform duration-300 transform hover:scale-110" // Add margin-bottom for spacing
                       onMouseEnter={() => {
-                        setHoveredTech(tech.name); // Set hovered technology
-                        setIsHovered(true); // Set hover state
+                        setHoveredTech(tech.name);
+                        setIsHovered(true);
                       }}
                       onMouseLeave={() => {
-                        setHoveredTech(null); // Reset on leave
-                        setIsHovered(false); // Reset hover state
+                        setHoveredTech(null);
+                        setIsHovered(false);
                       }}
                     >
-                      <img 
-                        src={tech.src} 
-                        className="w-20 h-20 rounded-full shadow-lg  bg-white bg-cover" 
-                        onError={(e) => (e.target.src = '/fallback-image.png')} 
+                      <img
+                        src={tech.src}
+                        className="w-20 h-20 rounded-full shadow-lg bg-white transition-shadow duration-300 hover:shadow-xl" // Shadow effect on hover
+                        onError={(e) => (e.target.src = '/fallback-image.png')}
                       />
                       {hoveredTech === tech.name && (
-                        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-black text-white px-2 py-1 rounded-md text-sm">
+                        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-2 rounded-md text-sm shadow-lg">
                           {tech.name}
                         </div>
                       )}
@@ -285,9 +308,9 @@ const technologies = [
                   ))}
                 </div>
               </div>
-              
             </section>
 
+            {/* eXPLORE MORE */}
             <div className="w-full bg-gradient-to-r from-blue-900 to-blue-950 py-16">
                 <div className="flex flex-col justify-center items-center text-center">
                   <h1 className="text-5xl font-bold text-white px-6 md:px-32 mb-4 drop-shadow-lg transition-transform transform">
@@ -605,56 +628,61 @@ const technologies = [
             </div>
           </div>
         )}
-          { contactUsPopup && (
-            <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
-              <div class="max-w-md mx-auto p-6 bg-card rounded-lg shadow-lg">
-                <h2 class="text-2xl font-bold text-primary mb-4">Contact Us</h2>
-                <form>
-                  <div class="mb-4">
-                    <label for="name" class="block text-sm font-medium text-primary">Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      placeholder="Your Name"
-                      required
-                      class="w-full px-3 py-2 placeholder-input text-black bg-input border focus:ring focus:ring-primary  rounded-md focus:outline-none"
-      />
-                      </div>
-                      <div class="mb-4">
-                        <label for="email" class="block text-sm font-medium text-primary">Email</label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          placeholder="Your Email"
-                          required
-                          class="w-full px-3 py-2 placeholder-input text-black bg-white rounded-md focus:outline-none focus:ring focus:ring-primary "
+        {contactUsPopup && (
+              <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
+                <div className="max-w-5xl bg-white mx-auto p-8 rounded-lg shadow-lg">
+                  <h2 className="text-3xl font-bold text-primary mb-6 text-center">Contact Us</h2>
+                  <form>
+                    <div className="mb-6">
+                      <label htmlFor="name" className="block text-sm font-medium  text-primary">Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your Name"
+                        required
+                        className="w-full px-4 py-3 placeholder-input text-black bg-white border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-primary focus:border-primary transition duration-200"
                         />
-                      </div>
-                      <div class="mb-4">
-                        <label for="message" class="block text-sm font-medium text-primary">Message</label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          rows="4"
-                          placeholder="Your Message"
-                          required
-                          class="w-full px-3 py-2 placeholder-input  bg-input rounded-md focus:outline-none focus:ring focus:ring-primary text-black"
-                        ></textarea>
-                      </div>
-                      <button type="submit" class="w-full bg-primary text-primary-foreground py-2 rounded-md hover:bg-primary/80 transition-colors duration-300">Send</button>
-                    </form>
-                  </div>
-                      <button
+                    </div>
+                    <div className="mb-6">
+                      <label htmlFor="email" className="block text-sm font-medium text-primary">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your Email"
+                        required
+                        className="w-full px-4 py-3 placeholder-input text-black bg-white border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-primary focus:border-primary transition duration-200"
+                      />
+                    </div>
+                    <div className="mb-6">
+                      <label htmlFor="message" className="block text-sm font-medium text-primary">Message</label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="Your Message"
+                        required
+                        className="w-full px-4 py-3 placeholder-input bg-input border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-primary focus:border-primary transition duration-200 text-black"
+                      ></textarea>
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full bg-primary text-primary-foreground py-3 rounded-md hover:bg-primary/80 transition-colors duration-300"
+                    >
+                      Send
+                    </button>
+                  </form>
+                  <button
                     className="absolute top-4 right-4 text-white text-2xl bg-red-500 rounded-full p-2 hover:bg-red-700 transition duration-200 shadow-md"
-                      onClick={() => setContactUsPopup(false) } // Close modal on click
-                      aria-label="Close modal"
-                      >
-                          &times;
-                </button>
+                    onClick={() => setContactUsPopup(false)} // Close modal on click
+                    aria-label="Close modal"
+                  >
+                    &times;
+                  </button>
+                </div>
               </div>
-              ) }
+            )}
 
            
 
@@ -664,7 +692,7 @@ const technologies = [
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {/* Column 1: About Me */}
                     <div>
-                      <h4 className="font-semibold text-lg mb-4">About Me</h4>
+                      <h4 className="font-semibold text-lg mb-4 text-primary">About Me</h4>
                       <p className="text-sm">
                         I am a passionate developer with a knack for creating intuitive and dynamic user experiences. Let's work together!
                       </p>
@@ -672,7 +700,7 @@ const technologies = [
 
                     {/* Column 2: Services */}
                     <div>
-                      <h4 className="font-semibold text-lg mb-4">Services</h4>
+                      <h4 className="font-semibold text-lg mb-4 text-primary">Services</h4>
                       <ul className="text-sm">
                         <li className="mb-2"><a href="#" className="hover:text-gray-400">Web Development</a></li>
                         <li className="mb-2"><a href="#" className="hover:text-gray-400">UI/UX Design</a></li>
@@ -683,29 +711,60 @@ const technologies = [
 
                     {/* Column 3: Contact */}
                     <div>
-                      <h4 className="font-semibold text-lg mb-4">Contact Me</h4>
+                      <h4 className="font-semibold text-lg mb-4 text-primary">Contact Me</h4>
                       <ul className="text-sm">
-                        <li className="mb-2">Email: <a href="mailto:your-email@example.com" className="hover:text-gray-400">your-email@example.com</a></li>
-                        <li className="mb-2">Phone: <a href="tel:+123456789" className="hover:text-gray-400">+123 456 789</a></li>
+                        <li className="mb-2">Email: <a href="mailto:your-email@example.com" className="hover:text-gray-400">surafelkassahun21@gmail.com</a></li>
+                        <li className="mb-2">
+                          Phone: <a href="tel:+251963626110" className="hover:text-gray-400">+251 963 626 110</a>
+                        </li>
+
                         <li className="mb-2">Location: City, Country</li>
                       </ul>
                     </div>
 
                     {/* Column 4: Follow Me */}
                     <div>
-                      <h4 className="font-semibold text-lg mb-4">Follow Me</h4>
+                      <h4 className="font-semibold text-lg mb-4 text-primary">Follow Me</h4>
                       <ul className="flex space-x-4">
-                        <li><a href="#" className="hover:text-gray-400">LinkedIn</a></li>
-                        <li><a href="#" className="hover:text-gray-400">GitHub</a></li>
-                        <li><a href="#" className="hover:text-gray-400">Twitter</a></li>
-                        <li><a href="#" className="hover:text-gray-400">Instagram</a></li>
+                        <li>
+                          <a 
+                            href="https://www.linkedin.com/in/surafel-kassahun-92a048298" 
+                            className="hover:text-secondary" 
+                            aria-label="LinkedIn"
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                          >
+                            <Linkedin className="w-6 h-6" />
+                          </a>
+                        </li>
+                        <li>
+                          <a 
+                            href="https://github.com/SurafelK" 
+                            className="hover:text-secondary" 
+                            aria-label="GitHub" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                          >
+                            <GithubIcon className="w-6 h-6" />
+                          </a>
+                        </li>
+                        <li>
+                          <a 
+                            href="mailto:surafelkassahun21@gmail.com" 
+                            className="hover:text-secondary" 
+                            aria-label="Email"
+                          >
+                            <Mail className="w-6 h-6" />
+                          </a>
+                        </li>
                       </ul>
                     </div>
+
                   </div>
                 </div>
 
                 <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
-                  <p>© 2024 Your Name. All rights reserved.</p>
+                  <p>© 2024 Surafel Kassahun. All rights reserved.</p>
                 </div>
               </footer>
         </>
