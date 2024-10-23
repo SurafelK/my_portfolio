@@ -102,10 +102,10 @@ const technologies = [
             {/* Navigation */}
             <section className="py-5 sticky top-0 bg-gradient-to-r from-deep-blue to-blue-800 z-10 shadow-lg">
                 <nav className="flex justify-center gap-8 text-white shadow-md py-4 rounded-lg">
-                    {["Home", "Experience", "Previous Works"].map((text, index) => (
+                    {["Home", "Experience", "Projects", "Technologies"].map((text, index) => (
                         <Link
                             key={index}
-                            href={text === "Home" ? "/" : `/${text.toLowerCase().replace(" ", "-")}`}
+                            href={text === "Home" ? "#Home" : `#${text.toLowerCase().replace(" ", "-")}`}
                             className="text-primary relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full"
                         >
                             {text}
@@ -115,7 +115,7 @@ const technologies = [
             </section>
 
             {/* Hero Section */}
-            <section className={`bg-off-white`}>
+            <section id="Home" className={`bg-off-white`}>
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <motion.div
@@ -175,105 +175,105 @@ const technologies = [
 
 
             {/* Experience Cards */}
-            <section className="flex flex-col justify-center py-20 bg-gray-100 relative">
-    <div className="flex justify-start px-10 md:px-20 lg:px-44 mb-12">
-        <h3 className="text-start text-primary text-5xl font-semibold">Work Experience</h3>
-    </div>
-    <hr className="border-gray-300 mb-10" />
+            <section id="experience" className="flex flex-col justify-center py-20 bg-gray-100 relative">
+                  <div className="flex justify-start px-10 md:px-20 lg:px-44 mb-12">
+                      <h3 className="text-start text-primary text-5xl font-semibold">Work Experience</h3>
+                  </div>
+                  <hr className="border-gray-300 mb-10" />
 
-    {/* Container to hold the experiences */}
-    <div className="container mx-auto max-w-6xl flex flex-col items-center">
-        {/* Experience cards */}
-        <ul className="flex flex-col md:flex-row gap-10 relative">
-            {[
-                {
-                  image: "/santimpay-logo.png",
-                  title: "Backend Developer",
-                  date: "Jul 2023 - Mar 2024",
-                  position: "Intern",
-                  description: [
-                      "Developed and maintained backend systems using Laravel.",
-                      "Utilized MySQL for database management.",
-                      "Employed Postman for API testing and validation.",
-                      "Collaborated with front-end developers and product managers.",
-                      "Created and managed components in Blender.",
-                      "Assisted in designing RESTful APIs for seamless front-end integration.",
-                      "Implemented authentication and authorization mechanisms for secure user access.",
-                      "Participated in code reviews and contributed to improving code quality.",
-                      "Documented API endpoints and technical specifications for team reference.",
-                      "Gained experience in version control using Git and GitHub."
-                  ],
-                  key: "santimPay"
-              },
-              
-                {
-                  image: "/Tilla Logo-01.png",
-                  title: "Fullstack Developer",
-                  date: "Sep 2023 - Present",
-                  position: "Jr Developer",
-                  description: [
-                      "Developed responsive web applications using the MERN stack.",
-                      "Implemented UI components with React.js.",
-                      "Designed and integrated RESTful APIs.",
-                      "Managed state using Redux and Context API.",
-                      "Utilized MongoDB and MySQL for data storage.",
-                      "Collaborated with designers to enhance user experience and interface design.",
-                      "Conducted code reviews and participated in Agile development processes.",
-                      "Integrated third-party services and APIs for additional functionalities.",
-                      "Wrote unit and integration tests to ensure application reliability.",
-                      "Optimized application performance through code refactoring and profiling.",
-                      "Participated in team meetings and contributed to project planning."
-                  ],
-                  key: "tilla"
-              }
-              ,
-            ].map((item, index) => (
-                <li key={index} className="relative flex flex-col items-center w-full md:w-1/2">
-                    <motion.div
-                        className={`bg-white p-8 rounded-lg border border-gray-200 shadow-md transition transform hover:-translate-y-2 hover:shadow-xl duration-300 relative cursor-pointer`}
-                        onPointerEnter={() => toggleCard(item.key)}
-                        onPointerLeave={() => toggleCard(item.key)}
-                        variants={fadeIn("up", 0.5)}
-                        initial="hidden"
-                        whileInView={"show"}
-                        viewport={{ once: "true", amount: 0.7 }}
-                    >
-                        <div className="flex justify-center items-center mb-6">
-                            <img src={item.image} alt={`${item.title} Logo`} className="w-28 h-auto" />
-                        </div>
-                        <h1 className={`text-2xl text-center font-semibold mb-2 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
-                            {item.title}
-                        </h1>
-                        <h1 className={`text-xs text-center font-light text-zinc-400 mb-2 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
-                            {item.date}
-                        </h1>
-                        
-                        {cardStates[item.key] && (
-                            <ul className="list-disc pl-5 text-gray-700 text-sm transition-opacity duration-700">
-                                {item.description.map((desc, idx) => (
-                                    <motion.li key={idx} variants={fadeIn("up", 0.5)} initial="hidden" whileInView={"show"} className="flex items-center mb-2">
-                                        <span className="mr-2 text-primary">•</span>
-                                        {desc}
-                                    </motion.li>
-                                ))}
-                            </ul>
-                        )}
-                    </motion.div>
+                  {/* Container to hold the experiences */}
+                  <div className="container mx-auto max-w-6xl flex flex-col items-center">
+                      {/* Experience cards */}
+                      <ul className="flex flex-col md:flex-row gap-10 relative">
+                          {[
+                              {
+                                image: "/santimpay-logo.png",
+                                title: "Backend Developer",
+                                date: "Jul 2023 - Mar 2024",
+                                position: "Intern",
+                                description: [
+                                    "Developed and maintained backend systems using Laravel.",
+                                    "Utilized MySQL for database management.",
+                                    "Employed Postman for API testing and validation.",
+                                    "Collaborated with front-end developers and product managers.",
+                                    "Created and managed components in Blender.",
+                                    "Assisted in designing RESTful APIs for seamless front-end integration.",
+                                    "Implemented authentication and authorization mechanisms for secure user access.",
+                                    "Participated in code reviews and contributed to improving code quality.",
+                                    "Documented API endpoints and technical specifications for team reference.",
+                                    "Gained experience in version control using Git and GitHub."
+                                ],
+                                key: "santimPay"
+                            },
+                            
+                              {
+                                image: "/Tilla Logo-01.png",
+                                title: "Fullstack Developer",
+                                date: "Sep 2023 - Present",
+                                position: "Jr Developer",
+                                description: [
+                                    "Developed responsive web applications using the MERN stack.",
+                                    "Implemented UI components with React.js.",
+                                    "Designed and integrated RESTful APIs.",
+                                    "Managed state using Redux and Context API.",
+                                    "Utilized MongoDB and MySQL for data storage.",
+                                    "Collaborated with designers to enhance user experience and interface design.",
+                                    "Conducted code reviews and participated in Agile development processes.",
+                                    "Integrated third-party services and APIs for additional functionalities.",
+                                    "Wrote unit and integration tests to ensure application reliability.",
+                                    "Optimized application performance through code refactoring and profiling.",
+                                    "Participated in team meetings and contributed to project planning."
+                                ],
+                                key: "tilla"
+                            }
+                            ,
+                          ].map((item, index) => (
+                              <li key={index} className="relative flex flex-col items-center w-full md:w-1/2">
+                                  <motion.div
+                                      className={`bg-white p-8 rounded-lg border border-gray-200 shadow-md transition transform hover:-translate-y-2 hover:shadow-xl duration-300 relative cursor-pointer`}
+                                      onPointerEnter={() => toggleCard(item.key)}
+                                      onPointerLeave={() => toggleCard(item.key)}
+                                      variants={fadeIn("up", 0.5)}
+                                      initial="hidden"
+                                      whileInView={"show"}
+                                      viewport={{ once: "true", amount: 0.7 }}
+                                  >
+                                      <div className="flex justify-center items-center mb-6">
+                                          <img src={item.image} alt={`${item.title} Logo`} className="w-28 h-auto" />
+                                      </div>
+                                      <h1 className={`text-2xl text-center font-semibold mb-2 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
+                                          {item.title}
+                                      </h1>
+                                      <h1 className={`text-xs text-center font-light text-zinc-400 mb-2 ${cardStates[item.key] ? "text-primary" : "text-gray-800"}`}>
+                                          {item.date}
+                                      </h1>
+                                      
+                                      {cardStates[item.key] && (
+                                          <ul className="list-disc pl-5 text-gray-700 text-sm transition-opacity duration-700">
+                                              {item.description.map((desc, idx) => (
+                                                  <motion.li key={idx} variants={fadeIn("up", 0.5)} initial="hidden" whileInView={"show"} className="flex items-center mb-2">
+                                                      <span className="mr-2 text-primary">•</span>
+                                                      {desc}
+                                                  </motion.li>
+                                              ))}
+                                          </ul>
+                                      )}
+                                  </motion.div>
 
-                    {/* Disc indicator on the horizontal line */}
-                    <div className="w-4 h-4 bg-primary rounded-full absolute -top-8"></div>
-                </li>
-            ))}
-        </ul>
-    </div>
-</section>
+                                  {/* Disc indicator on the horizontal line */}
+                                  <div className="w-4 h-4 bg-primary rounded-full absolute -top-8"></div>
+                              </li>
+                          ))}
+                      </ul>
+                  </div>
+              </section>
 
 
 
 
             {/* Technologies */}
             
-            <section className="py-20 bg-off-white border-t-8 border-bright-green cursor-pointer overflow-hidden">
+            <section id="technologies" className="py-20 bg-off-white border-t-8 border-bright-green cursor-pointer overflow-hidden">
               <div className="container mx-auto text-center">
                 <h1 className="text-primary text-5xl font-bold mb-12 transition-all duration-300 hover:scale-105">
                   Technologies Experienced
@@ -311,7 +311,7 @@ const technologies = [
             </section>
 
             {/* eXPLORE MORE */}
-            <div className="w-full bg-gradient-to-r from-blue-900 to-blue-950 py-16">
+            <div id="projects" className="w-full bg-gradient-to-r from-blue-900 to-blue-950 py-16">
                 <div className="flex flex-col justify-center items-center text-center">
                   <h1 className="text-5xl font-bold text-white px-6 md:px-32 mb-4 drop-shadow-lg transition-transform transform">
                     Explore More <span className="text-primary">Projects</span>
