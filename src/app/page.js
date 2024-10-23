@@ -44,7 +44,7 @@ const technologies = [
 ];
     const [hoveredTech, setHoveredTech] = useState(null);
     const [isHovered, setIsHovered] = useState(false); // State to track hover status
-
+    const [contactUsPopup, setContactUsPopup] = useState(false)
     return (
         <>
             {/* Navigation */}
@@ -217,19 +217,22 @@ const technologies = [
 
             <div className="w-full bg-gradient-to-r from-blue-900 to-blue-950 py-16">
                 <div className="flex flex-col justify-center items-center text-center">
-                  <h1 className="text-5xl font-bold text-white px-6 md:px-32 mb-4 drop-shadow-lg transition-transform transform hover:scale-105 hover:underline">
+                  <h1 className="text-5xl font-bold text-white px-6 md:px-32 mb-4 drop-shadow-lg transition-transform transform">
                     Explore More <span className="text-primary">Projects</span>
                   </h1>
-                  <p className="w-80 text-xl text-gray-200 italic p-6 bg-blue-800 rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 hover:bg-blue-700">
+                  <p className="w-80 text-xl text-gray-200 italic p-6 bg-blue-800 rounded-lg shadow-lg transform transition-transform duration-300 hover:cursor-pointer hover:bg-blue-700">
                     {rightQuote}{rightQuote} The only way to do great work is to love what you do.{leftQuote}{leftQuote} — Steve Jobs
                   </p>
                   <div className="mt-8 flex space-x-4">
                     <button 
                       onClick={() => setProjects(true)}
-                      className="bg-white text-blue-900 font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transition duration-200 transform hover:scale-105">
+                      className="bg-white text-blue-900 font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transition duration-200 transform ">
                       View All Projects
                     </button>
-                    <button className="bg-transparent border-2 border-white text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-blue-900 transition duration-200 transform hover:scale-105">
+                    <button 
+                    className="bg-transparent border-2 border-white text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-white hover:text-blue-900 transition duration-200 transform hover:scale-105"
+                    onClick={() => setContactUsPopup(true)}
+                    >
                       Get Started
                     </button>
                   </div>
@@ -329,6 +332,57 @@ const technologies = [
                   </div>
               </div>
           )}
+
+          { contactUsPopup && (
+            <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
+              <div class="max-w-md mx-auto p-6 bg-card rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-primary mb-4">Contact Us</h2>
+                <form>
+                  <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium text-primary">Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Your Name"
+                      required
+                      class="w-full px-3 py-2 placeholder-input text-black bg-input border focus:ring focus:ring-primary  rounded-md focus:outline-none"
+   />
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-primary">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="Your Email"
+                      required
+                      class="w-full px-3 py-2 placeholder-input text-black bg-white rounded-md focus:outline-none focus:ring focus:ring-primary "
+                    />
+                  </div>
+                  <div class="mb-4">
+                    <label for="message" class="block text-sm font-medium text-primary">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      placeholder="Your Message"
+                      required
+                      class="w-full px-3 py-2 placeholder-input  bg-input rounded-md focus:outline-none focus:ring focus:ring-primary text-black"
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="w-full bg-primary text-primary-foreground py-2 rounded-md hover:bg-primary/80 transition-colors duration-300">Send</button>
+                </form>
+              </div>
+                  <button
+                className="absolute top-4 right-4 text-white text-2xl bg-red-500 rounded-full p-2 hover:bg-red-700 transition duration-200 shadow-md"
+                  onClick={() => setContactUsPopup(false) } // Close modal on click
+                  aria-label="Close modal"
+                  >
+                      &times;
+            </button>
+          </div>
+          ) }
 
         </>
     );
