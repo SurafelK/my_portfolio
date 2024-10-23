@@ -102,7 +102,7 @@ const technologies = [
             {/* Navigation */}
             <section className="py-5 sticky top-0 bg-gradient-to-r from-deep-blue to-blue-800 z-10 shadow-lg">
                 <nav className="flex justify-center gap-8 text-white shadow-md py-4 rounded-lg">
-                    {["Home", "Experience", "Projects", "Technologies"].map((text, index) => (
+                    {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
                         <Link
                             key={index}
                             href={text === "Home" ? "#Home" : `#${text.toLowerCase().replace(" ", "-")}`}
@@ -718,7 +718,7 @@ const technologies = [
                           Phone: <a href="tel:+251963626110" className="hover:text-gray-400">+251 963 626 110</a>
                         </li>
 
-                        <li className="mb-2">Location: City, Country</li>
+                        <li className="mb-2">Location: Addis Ababa, Ethiopia</li>
                       </ul>
                     </div>
 
