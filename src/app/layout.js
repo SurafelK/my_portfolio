@@ -7,6 +7,10 @@ const roboto = Roboto({
   weight: ["400", "700"], // Add the weights you need
 });
 
+export const metadata = {
+  title: "Surafel - Full Stack Developer",
+  description: "Full Stack Developer skilled in building dynamic web applications. Check out my projects, skills, and passion for technology!",
+};
 
 export default function RootLayout({ children }) {
   return (
