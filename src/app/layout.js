@@ -34,11 +34,7 @@ export default function RootLayout({ children }) {
         <main className="w-full mx-auto p-4">
           {children}
         </main>
-        <footer className="text-center p-4">
-          <p>
-            Created by <a href={metadata.url} className="text-blue-500">Surafel</a>
-          </p>
-        </footer>
+    
       </body>
     </html>
   );

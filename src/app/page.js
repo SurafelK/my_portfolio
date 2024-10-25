@@ -101,7 +101,7 @@ const technologies = [
         <>
             {/* Navigation */}
             <section className="py-5 sticky top-0 bg-gradient-to-r from-deep-blue to-blue-800 z-10 shadow-lg">
-                <nav className="flex justify-center gap-8 text-white shadow-md py-4 rounded-lg">
+                <nav className="flex justify-center gap-8 text-white  py-4 rounded-lg">
                     {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
                         <Link
                             key={index}
