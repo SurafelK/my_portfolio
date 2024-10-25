@@ -162,7 +162,10 @@ const technologies = [
             <section className="flex flex-col justify-center items-center mb-20 gap-10" >
               <div className="bg-zinc-800/50 backdrop-blur-md p-20 text-secondary border border-zinc-700 rounded-lg space-y-4 max-w-2xl">
               <h3 className="text-start text-primary text-5xl font-semibold">Education</h3>
-              <p className="text-lg text-sm"> I hold a Bachelor's degree from Arbaminch University, where I was honored to be on the Dean's List. This recognition reflects my dedication to academic excellence and my commitment to achieving the highest standards in my studies. </p>
+              <p className="text-lg text-sm">
+                I hold a Bachelor&apos;s degree from Arbaminch University, where I was honored to be on the Dean&apos;s List. This recognition reflects my dedication to academic excellence and my commitment to achieving the highest standards in my studies.
+              </p>
+
               </div>
             </section>
             
