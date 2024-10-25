@@ -151,7 +151,7 @@ const technologies = [
                             <img
                                 src="/Bggggpng.png"
                                 alt="Background"
-                                className="w-full h-auto rounded-lg shadow-xl transform transition duration-500 hover:scale-105"
+                                className="w-full h-auto  transform transition duration-500 hover:scale-105"
                             />
                         </motion.div>
                     </div>
