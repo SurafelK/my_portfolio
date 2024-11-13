@@ -12,25 +12,25 @@ export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
     const [TheradermDetailDescription, setTheradermDetailDescription] = useState(false)
     const [AvlDetailDescription, setAvlDetailDescription] = useState(false)
+    const [ tillaShopDescription, setTillaShopDescription ] = useState(false)
     const toggleCard = (key) => {
         setCardStates((prev) => ({ ...prev, [key]: !prev[key] }));
     };
+    const tgBot = '/shop.jpg'
 
-    const [detailDesciption, setDetailDescription] = useState(false)
+    const [detailDescription, setDetailDescription] = useState(false)
     const [projects, setProjects] = useState(false)
 
 
     const toggleModal = () => {
         setIsOpen(!isOpen);
     };
-
     const toggleProjects = () =>
     {
       setProjects(!projects)
     }
     const rightQuote = '❛'
-    const leftQuote = '❜'
-
+    const leftQuote = '❜';
 const technologies = [
   { src: "/physics.png", name: "React" },
   { src: "/Firebase.png", name: "Firebase" },
@@ -55,6 +55,7 @@ const technologies = [
     const [isHovered, setIsHovered] = useState(false); // State to track hover status
     const [contactUsPopup, setContactUsPopup] = useState(false)
     const [isTheradermOpen, setisTheradermOpen] = useState(false)
+    const [isShopBot, setIsShopBot] = useState(false)
 
     const AccordionItem = ({ question, answer, isOpen, onToggle }) => (
       <div className="border-b border-zinc-300">
@@ -223,17 +224,20 @@ const technologies = [
                                 date: "Sep 2023 - Present",
                                 position: "Jr Developer",
                                 description: [
-                                    "Developed responsive web applications using the MERN stack.",
-                                    "Implemented UI components with React.js.",
-                                    "Designed and integrated RESTful APIs.",
-                                    "Managed state using Redux and Context API.",
-                                    "Utilized MongoDB and MySQL for data storage.",
-                                    "Collaborated with designers to enhance user experience and interface design.",
-                                    "Conducted code reviews and participated in Agile development processes.",
-                                    "Integrated third-party services and APIs for additional functionalities.",
-                                    "Wrote unit and integration tests to ensure application reliability.",
-                                    "Optimized application performance through code refactoring and profiling.",
-                                    "Participated in team meetings and contributed to project planning."
+                                  
+                                    "Developed responsive web applications using the MERN stack (MongoDB, Express, React, Node.js), ensuring cross-device compatibility and user-friendly interfaces.",
+                                    "Implemented dynamic UI components with React.js, enhancing interactivity and improving the overall user experience.",
+                                    "Designed and integrated RESTful APIs to facilitate seamless communication between client and server.",
+                                    "Managed application state effectively using Redux and Context API, improving data flow and application scalability.",
+                                    "Utilized MongoDB and MySQL for efficient data storage and retrieval, depending on project requirements.",
+                                    "Collaborated with UI/UX designers to refine user experience and deliver visually appealing interfaces.",
+                                    "Conducted code reviews to maintain code quality and ensure adherence to best practices.",
+                                    "Participated in Agile development processes, contributing to sprint planning, stand-ups, and retrospectives.",
+                                    "Integrated third-party APIs and services, extending application functionality and enhancing user experience.",
+                                    "Developed unit and integration tests to ensure code reliability and minimize bugs.",
+                                    "Optimized application performance through refactoring, profiling, and implementing best coding practices.",
+                                    "Participated in project planning and team discussions, contributing ideas to enhance project outcomes.",
+                                    "Developed an online shopping bot for Telegram, allowing customers to order products directly through the platform, with seamless delivery integration."                                  
                                 ],
                                 key: "tilla"
                             }
@@ -432,7 +436,40 @@ const technologies = [
         </button>
       </motion.div>
     </div>
-  </div>
+
+    {/* Project 4 */}
+    <div className="relative group transition-transform transform hover:scale-105 duration-300 rounded-lg overflow-hidden shadow-lg bg-gray-800 hover:shadow-2xl">
+          <div className="relative group transition-transform transform hover:scale-105 duration-300 rounded-lg overflow-hidden shadow-lg bg-gray-800">
+            <img
+              src={tgBot}
+            
+              title="Embedded Website"
+              className={`w-full h-auto rounded-lg shadow-lg transition-transform duration-300 transform ${
+                tillaShopDescription ? 'scale-80' : 'scale-100'
+              }`}
+              alt="ShopBot E-commerce Bot"
+            />
+            <div className="hidden group-hover:block absolute inset-0 bg-black bg-opacity-70 transition-opacity duration-300"></div>
+            <motion.div
+              variants={fadeIn("up", 0)}
+              initial="hidden"
+              whileInView={"show"}
+              className="hidden group-hover:flex absolute inset-0 flex-col items-center justify-center text-center text-white px-6 py-4 rounded-lg transition-transform transform scale-95 group-hover:scale-100 duration-300"
+            >
+              <span className="text-xl font-bold mb-2">Tilla Shop</span>
+              <span className="text-sm mb-4">
+                ShopBot - Telegram E-commerce Solution
+              </span>
+              <button
+                className="mt-4 bg-blue-600 text-white px-5 py-2 rounded-md shadow-md hover:bg-blue-500 transition-colors duration-200 transform hover:scale-105"
+                onClick={() => setIsShopBot(true)}
+              >
+                Learn More
+              </button>
+            </motion.div>
+          </div>
+        </div>
+      </div>
 )}
 
 
@@ -452,14 +489,14 @@ const technologies = [
                   <div className="relative w-3/4 md:w-1/2 lg:w-10/12">
                       <img
                           src="/Hotel.png" // Consider passing this as a prop
-                          className={`w-full h-auto rounded-lg transition-transform duration-300 transform ${detailDesciption ? 'scale-95' : 'scale-100'}`} // Apply scale effect based on detailDescription
+                          className={`w-full h-auto rounded-lg transition-transform duration-300 transform ${detailDescription ? 'scale-95' : 'scale-100'}`} // Apply scale effect based on detailDescription
                           alt="Restaurant POS System"
                       />
                       <motion.div
                           variants={fadeIn("up", 0)}
                           initial="hidden"
                           whileInView="show"
-                          className={`${detailDesciption ? "hidden" : "flex"} absolute inset-0 flex-col items-center justify-center text-center text-white px-6 py-4 rounded-lg transition-transform transform scale-95 bg-opacity-80`}
+                          className={`${detailDescription ? "hidden" : "flex"} absolute inset-0 flex-col items-center justify-center text-center text-white px-6 py-4 rounded-lg transition-transform transform scale-95 bg-opacity-80`}
                           style={{ background: "rgba(0, 0, 0, 0.7)" }} // Darker background for better contrast
                       >
                           <span className="text-xl font-bold mb-2">Restaurant POS System</span>
@@ -607,6 +644,7 @@ const technologies = [
                     The <strong className="text-blue-400">Theraderm Ethiopia</strong> project is designed to provide comprehensive skin care solutions, highlighting various treatments and services offered by Theraderm. This platform serves as a user-friendly interface for potential clients seeking quality skin care services.
                   </p>
                   <h2 className="text-sm md:text-base font-semibold mb-2 text-gray-300">Key Features:</h2>
+                 <div className="flex flex-col justify-center items-center" >
                   <ul className="list-disc pl-5 text-gray-200 mb-2 text-sm md:text-base">
                     {[
                       "User-Friendly Interface: Designed to ensure ease of navigation for users looking for skin care services.",
@@ -618,6 +656,7 @@ const technologies = [
                       </li>
                     ))}
                   </ul>
+                 </div>
                 </div>
               </motion.div>
 
@@ -639,6 +678,77 @@ const technologies = [
             </div>
           </div>
         )}
+
+{isShopBot && (
+  <div
+    className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90"
+    role="dialog"
+    aria-modal="true"
+    onKeyDown={(e) => e.key === 'Escape' && setAvlDetailDescription(false)} // Close on Esc key
+    onMouseEnter={() => setTillaShopDescription(false)} // Show details on hover
+    onMouseLeave={() => setTillaShopDescription(true)} // Hide details on mouse leave
+  >
+    <div className="relative w-11/12 md:w-3/4 lg:w-2/3 bg-white rounded-lg shadow-xl overflow-hidden">
+      {/* Image Section */}
+      <img
+        src={tgBot} // Consider passing this as a prop
+        className={`w-lvh max-h-lvh rounded-lg shadow-lg transition-transform duration-300 transform ${
+          tillaShopDescription ? 'scale-70' : 'scale-100'
+        }`}
+        alt="ShopBot E-commerce Bot"
+      />
+
+      {/* Overlay with description */}
+      <motion.div
+        variants={fadeIn("up", 0.2)}
+        initial="hidden"
+        whileInView="show"
+        className={`${
+          tillaShopDescription ? "hidden" : "flex"
+        } absolute inset-0 flex-col items-center justify-center text-center text-white p-6`}
+        style={{ background: "rgba(0, 0, 0, 0.8)" }}
+      >
+        <span className="text-2xl font-bold mb-3">ShopBot E-commerce Bot</span>
+        <span className="text-sm md:text-base mb-6 leading-relaxed">
+          I developed <strong>ShopBot</strong>, a Telegram-based e-commerce bot that enables customers to browse and order products seamlessly within the Telegram platform. Users can easily select products, add them to their cart, and choose their preferred delivery location. The bot uses the <strong>Gebeta Map API</strong> to calculate delivery costs based on the distance from our store, ensuring accurate pricing for each order.
+          <br /><br />
+          Integrated with <strong>Santimpay</strong> for secure, in-chat payment processing, ShopBot simplifies the purchasing process without leaving Telegram. Built with the <strong>MERN stack</strong>, ShopBot offers a smooth user experience while optimizing order management.
+          <br /><br />
+          <strong>Key Features:</strong>
+       <div className=" flex flex-col justify-center items-center  " >
+       <ul className="list-disc">
+            <li>Browse products and add to cart directly on Telegram</li>
+            <li>Location-based delivery cost calculation</li>
+            <li>Secure payments via Santimpay</li>
+            <li>Full-stack development using the MERN stack</li>
+          </ul>
+       </div>
+          <br />
+         
+          Try it out here: <a href="https://t.me/tilla_shopbot" target="_blank" className="text-blue-400 underline">Visit shop</a>
+        </span>
+        <a
+          className="mt-4 bg-blue-600 text-white px-8 py-3 rounded-md shadow-lg hover:bg-black transition-colors duration-200"
+         href="https://t.me/tilla_shopbot"
+         target="_blank"
+         
+        >
+          Visit Shop
+        </a>
+      </motion.div>
+
+      {/* Close Button */}
+      <button
+        className="absolute top-4 right-4 text-white text-2xl bg-red-600 rounded-full p-2 hover:bg-red-700 transition duration-200 shadow-md"
+        onClick={ ()=> setIsShopBot(false) }
+        aria-label="Close modal"
+      >
+        &times;
+      </button>
+    </div>
+  </div>
+)}
+
         {contactUsPopup && (
               <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
                 <div className="max-w-5xl bg-white mx-auto p-8 rounded-lg shadow-lg">
