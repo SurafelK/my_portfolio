@@ -116,7 +116,7 @@ const technologies = [
             </section>
 
             {/* Hero Section */}
-            <section id="Home" className={`bg-off-white`}>
+            <section id="Home" className={`bg-off-white animate-fadeIn`}>
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <motion.div
@@ -151,8 +151,8 @@ const technologies = [
                         >
                             <img
                                 src="/Bggggpng.png"
-                                alt="Background"
-                                className="w-full h-auto  transform transition duration-500 hover:scale-105"
+                                alt="Background image showcasing portfolio"
+                                className="w-full h-auto transform transition duration-500 hover:scale-105"
                             />
                         </motion.div>
                     </div>
@@ -337,7 +337,9 @@ const technologies = [
                   <div className="mt-8 flex space-x-4">
                     <button 
                       onClick={toggleProjects}
-                      className="bg-white text-blue-900 font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transition duration-200 transform ">
+                      className="bg-white text-blue-900 font-semibold px-6 py-2 rounded-lg shadow-md hover:bg-gray-100 transition duration-200 transform "
+                      aria-label="View all projects"
+                    >
                       View All Projects
                     </button>
                     <button 
@@ -357,6 +359,7 @@ const technologies = [
     <div className="relative group transition-transform transform hover:scale-105 duration-300 rounded-lg overflow-hidden shadow-lg bg-gray-800 hover:shadow-2xl">
       <img
         src="/Hotel.png"
+        loading="lazy"
         className="w-full h-64 object-cover transition-transform duration-300 ease-in-out transform group-hover:scale-110 cursor-pointer"
         alt="Restaurant POS System"
         onClick={toggleModal}
@@ -751,7 +754,7 @@ const technologies = [
 
         {contactUsPopup && (
               <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-90">
-                <div className="max-w-5xl bg-white mx-auto p-8 rounded-lg shadow-lg">
+                <div className="min-w-96 bg-white mx-auto p-8 rounded-lg shadow-lg">
                   <h2 className="text-3xl font-bold text-primary mb-6 text-center">Contact Us</h2>
                   <form>
                     <div className="mb-6">
