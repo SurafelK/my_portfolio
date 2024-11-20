@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
-import { Github, GithubIcon, Instagram, Linkedin, Mail, Twitter, TwitterIcon } from "lucide-react";
+import { Award, Building, Calendar, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Twitter, TwitterIcon } from "lucide-react";
 
 export default function Home() {
     // Initialize state for experience cards
@@ -51,6 +51,72 @@ const technologies = [
   { src: "/elec.jpg", name: "Electron" },
   
 ];
+
+
+const experience = [
+  {
+    image: "/santimpay-logo.png",
+    title: "Backend Developer",
+    date: "Jul 2023 - Mar 2024",
+    position: "Intern",
+    description: [
+        "Developed and maintained backend systems using Laravel.",
+        "Utilized MySQL for database management.",
+        "Employed Postman for API testing and validation.",
+        "Collaborated with front-end developers and product managers.",
+        "Created and managed components in Blender.",
+        "Assisted in designing RESTful APIs for seamless front-end integration.",
+        "Implemented authentication and authorization mechanisms for secure user access.",
+        "Participated in code reviews and contributed to improving code quality.",
+        "Documented API endpoints and technical specifications for team reference.",
+        "Gained experience in version control using Git and GitHub."
+    ],
+    key: "santimPay"
+},
+
+  {
+    image: "/Tilla Logo-01.png",
+    title: "Fullstack Developer",
+    date: "Sep 2023 - Present",
+    position: "SR Developer",
+    description: [
+      
+        "Developed responsive web applications using the MERN stack (MongoDB, Express, React, Node.js), ensuring cross-device compatibility and user-friendly interfaces.",
+        "Implemented dynamic UI components with React.js, enhancing interactivity and improving the overall user experience.",
+        "Designed and integrated RESTful APIs to facilitate seamless communication between client and server.",
+        "Managed application state effectively using Redux and Context API, improving data flow and application scalability.",
+        "Utilized MongoDB and MySQL for efficient data storage and retrieval, depending on project requirements.",
+        "Collaborated with UI/UX designers to refine user experience and deliver visually appealing interfaces.",
+        "Conducted code reviews to maintain code quality and ensure adherence to best practices.",
+        "Participated in Agile development processes, contributing to sprint planning, stand-ups, and retrospectives.",
+        "Integrated third-party APIs and services, extending application functionality and enhancing user experience.",
+        "Developed unit and integration tests to ensure code reliability and minimize bugs.",
+        "Optimized application performance through refactoring, profiling, and implementing best coding practices.",
+        "Participated in project planning and team discussions, contributing ideas to enhance project outcomes.",
+        "Developed an online shopping bot for Telegram, allowing customers to order products directly through the platform, with seamless delivery integration."                                  
+    ],
+    key: "tilla"
+}
+,
+]
+
+const tillaExp = [
+  "Led the development and deployment of an e-commerce Telegram bot, aligning with business goals.",
+  "Integrated Gebeta Map API for direction calculation and Santimpay for seamless payment processing.",
+  "Managed project timelines and resources, ensuring timely delivery and quality assurance.",
+  "Developed the bot using the MERN stack (MongoDB, Express, React, Node.js) and optimized performance.",
+  "Coordinated with stakeholders, conducted sprint meetings, and provided regular project updates."
+];
+
+const backendExperience = [
+  "Developed and maintained the backend for a CMS-based website using Laravel, ensuring efficient content management and user experience.",
+  "Designed and implemented RESTful APIs to facilitate seamless communication between frontend and backend.",
+  "Integrated payment processing features with Santimpay, ensuring secure and smooth financial transactions.",
+  "Managed database design and optimization using MySQL for storing user data, transactions, and content efficiently.",
+  "Collaborated with frontend developers and UI/UX teams to ensure backend functionality aligned with design requirements and project goals."
+];
+
+
     const [hoveredTech, setHoveredTech] = useState(null);
     const [isHovered, setIsHovered] = useState(false); // State to track hover status
     const [contactUsPopup, setContactUsPopup] = useState(false)
@@ -126,18 +192,15 @@ const technologies = [
                             viewport={{ once: "false", amount: 0.7 }}
                             className="text-center md:text-left"
                         >
-                            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-primary">Surafel Kassahun</h1>
-                            <p className="text-bright-green text-lg text-gray-400">
-                                Fullstack developer based in Ethiopia. Open for both project-based work and collaborations.
+                            <h1 className="mb-3 text-primary font-bold text-4xl">Surafel Kassahun</h1>
+                            <p className="text-bright-green text-lg capitalize text-gray-400">
+                                Full stack web developer 
                             </p>
+                           <div className="flex md:justify-start justify-center " >  <h3 className="text-gray-200 flex gap-2 mt-2" > Addis Ababa, Ethiopia  <MapPin size={24} color="currentColor" /> </h3> </div>
                             <div className={`text-gray-500 items-center flex flex-col justify-center align-middle py-10 max-w-xl`}>
                                 <p className={`text-5xl text-secondary`}> {rightQuote} </p>
                                 <p className="text-pretty text-secondary">
-                                    As a passionate Fullstack Developer with a strong foundation in both front-end and back-end technologies, I specialize in creating dynamic and user-friendly web applications. With expertise in frameworks such as React, Angular, and Node.js, I excel in transforming complex requirements into intuitive interfaces while ensuring seamless server-side functionality.
-                                    My proficiency in database management, RESTful APIs, and cloud services allows me to build scalable and efficient solutions.
-                                    I am committed to staying current with industry trends and best practices,
-                                    leveraging my problem-solving skills to deliver high-quality products that enhance user experience and drive business growth.
-                                    Collaborative by nature, I thrive in agile environments and enjoy working closely with cross-functional teams to bring innovative ideas to life.
+                                Specialized in MERN Stack and modern web development, I build high-performance, scalable applications using cutting-edge technologies. Passionate about crafting seamless user experiences and efficient backend systems.
                                 </p>
                                 <p className={`text-5xl text-secondary`}> {leftQuote} </p>
                             </div>
@@ -160,7 +223,7 @@ const technologies = [
             </section>
 
             {/* Education */}
-            <section className="flex flex-col justify-center items-center mb-20 gap-10" >
+            {/* <section className="flex flex-col justify-center items-center mb-20 gap-10" >
               <div className="bg-zinc-800/50 backdrop-blur-md p-20 text-secondary border border-zinc-700 rounded-lg space-y-4 max-w-2xl">
               <h3 className="text-start text-primary text-5xl font-semibold">Education</h3>
               <p className="text-lg text-sm">
@@ -168,7 +231,7 @@ const technologies = [
               </p>
 
               </div>
-            </section>
+            </section> */}
             
                {/* FAQ */}
                {/* <div className="max-w-md flex justify-center mb-5">
@@ -187,7 +250,7 @@ const technologies = [
 
 
             {/* Experience Cards */}
-            <section id="experience" className="flex flex-col justify-center py-20 bg-gray-100 relative">
+            <section id="experience" className="flex flex-col justify-center py-20 bg-gray-100 relative hidden md:block ">
                   <div className="flex justify-start px-10 md:px-20 lg:px-44 mb-12">
                       <h3 className="text-start text-primary text-5xl font-semibold">Work Experience</h3>
                   </div>
@@ -197,52 +260,7 @@ const technologies = [
                   <div className="container mx-auto max-w-6xl flex flex-col items-center">
                       {/* Experience cards */}
                       <ul className="flex flex-col md:flex-row gap-10 relative">
-                          {[
-                              {
-                                image: "/santimpay-logo.png",
-                                title: "Backend Developer",
-                                date: "Jul 2023 - Mar 2024",
-                                position: "Intern",
-                                description: [
-                                    "Developed and maintained backend systems using Laravel.",
-                                    "Utilized MySQL for database management.",
-                                    "Employed Postman for API testing and validation.",
-                                    "Collaborated with front-end developers and product managers.",
-                                    "Created and managed components in Blender.",
-                                    "Assisted in designing RESTful APIs for seamless front-end integration.",
-                                    "Implemented authentication and authorization mechanisms for secure user access.",
-                                    "Participated in code reviews and contributed to improving code quality.",
-                                    "Documented API endpoints and technical specifications for team reference.",
-                                    "Gained experience in version control using Git and GitHub."
-                                ],
-                                key: "santimPay"
-                            },
-                            
-                              {
-                                image: "/Tilla Logo-01.png",
-                                title: "Fullstack Developer",
-                                date: "Sep 2023 - Present",
-                                position: "Jr Developer",
-                                description: [
-                                  
-                                    "Developed responsive web applications using the MERN stack (MongoDB, Express, React, Node.js), ensuring cross-device compatibility and user-friendly interfaces.",
-                                    "Implemented dynamic UI components with React.js, enhancing interactivity and improving the overall user experience.",
-                                    "Designed and integrated RESTful APIs to facilitate seamless communication between client and server.",
-                                    "Managed application state effectively using Redux and Context API, improving data flow and application scalability.",
-                                    "Utilized MongoDB and MySQL for efficient data storage and retrieval, depending on project requirements.",
-                                    "Collaborated with UI/UX designers to refine user experience and deliver visually appealing interfaces.",
-                                    "Conducted code reviews to maintain code quality and ensure adherence to best practices.",
-                                    "Participated in Agile development processes, contributing to sprint planning, stand-ups, and retrospectives.",
-                                    "Integrated third-party APIs and services, extending application functionality and enhancing user experience.",
-                                    "Developed unit and integration tests to ensure code reliability and minimize bugs.",
-                                    "Optimized application performance through refactoring, profiling, and implementing best coding practices.",
-                                    "Participated in project planning and team discussions, contributing ideas to enhance project outcomes.",
-                                    "Developed an online shopping bot for Telegram, allowing customers to order products directly through the platform, with seamless delivery integration."                                  
-                                ],
-                                key: "tilla"
-                            }
-                            ,
-                          ].map((item, index) => (
+                         { experience.map((item, index) => (
                               <li key={index} className="relative flex flex-col items-center w-full md:w-1/2">
                                   <motion.div
                                       className={`bg-white p-8 rounded-lg border border-gray-200 shadow-md transition transform hover:-translate-y-2 hover:shadow-xl duration-300 relative cursor-pointer`}
@@ -282,6 +300,132 @@ const technologies = [
                       </ul>
                   </div>
               </section>
+              
+              {/* Movile view Experience */}
+              <div id="experience" className="flex flex-col max-h-screen justify-center items-center my-20 w-full md:hidden">
+  
+                  <div>
+                    <h1 className="text-white text-3xl font-semibold">Work Experience</h1>
+                  </div>
+
+                  <div className="  bg-gray-800 max-w-5xl max-h-screen px-10 py-5 rounded-lg shadow-md">
+                    <div className="flex justify-center" >
+                      <h2 className="text-primary flex gap-4 capitalize font-bold">
+                        <Award /> Project Manager - Full Stack Web Developer
+                      </h2>
+                    </div>
+
+                    <div className="gap-5 text-xs text-gray-500 flex justify-center">
+                      <div className="flex gap-2">
+                        <div>
+                          <Building size={20} />
+                        </div>
+                        <div className="flex justify-center items-center">
+                          <h3 className="font-semibold">Tilla Africa</h3>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2">
+                        <div>
+                          <Calendar />
+                        </div>
+                        <div className="flex justify-center items-center">
+                          <h3>Sep 2023 - Present</h3>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="text-sm mt-5" >
+                      <ul className="gap-2 space-y-2 list-disc" >
+            
+
+                        { tillaExp.map((item, index) => (
+                            <motion.li
+                             key={index}
+                              className="text-gray-300"
+                              variants={fadeIn("left", 0.2)}
+                              initial="hidden"
+                              whileInView={"show"}
+                              viewport={{ once: "false", amount: 0.7 }}
+                          
+                              >{item}</motion.li>
+                        )) }
+
+                        <motion.div>
+                        { tillaExp.map((item, index) => (
+                            <li
+                             key={index}
+                              className="text-gray-300"
+
+                              >{item}</li>
+                        )) }
+                        </motion.div>
+                        
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+
+                <div id="experience" className="flex flex-col max-h-screen justify-center items-center my-20 w-full md:hidden">
+                  <div className="bg-gray-800 max-w-5xl max-h-screen px-10 py-5 rounded-lg shadow-md">
+                   <div className="flex justify-center" >
+                    <h2 className="text-primary flex gap-4 capitalize font-bold">
+                        <Award /> Internship - Backend Developer
+                      </h2>
+                   </div>
+
+                    <div className="gap-5 text-xs text-gray-500 mt-2 flex justify-center">
+                      <div className="flex gap-2">
+                        <div>
+                          <Building size={20} />
+                        </div>
+                        <div className="flex justify-center items-center">
+                          <h3 className="font-semibold">Santimpay Financial Solutions</h3>
+                        </div>
+                      </div>
+
+                      <div className="flex gap-2">
+                        <div>
+                          <Calendar />
+                        </div>
+                        <div className="flex justify-center items-center">
+                          <h3>Jul 2023 - Mar 2024 </h3>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-sm mt-5" >
+                      <ul className="gap-2 space-y-2 list-disc" >
+            
+
+                        { backendExperience.map((item, index) => (
+                            <motion.li
+                             key={index}
+                              className="text-gray-300"
+                              variants={fadeIn("left", 0.2)}
+                              initial="hidden"
+                              whileInView={"show"}
+                              viewport={{ once: "false", amount: 0.7 }}
+                          
+                              >{item}</motion.li>
+                        )) }
+
+                        <motion.div>
+                        { tillaExp.map((item, index) => (
+                            <li
+                             key={index}
+                              className="text-gray-300"
+
+                              >{item}</li>
+                        )) }
+                        </motion.div>
+                        
+                      </ul>
+                    </div>
+                  </div>
+
+                </div>
+
 
 
 
