@@ -210,14 +210,14 @@ const backendExperience = [
                             viewport={{ once: "false", amount: 0.7 }}
                             className="text-center md:text-left"
                         >
-                            <h1 className="mb-3 text-primary font-bold text-4xl">Surafel Kassahun</h1>
-                            <p className="text-bright-green text-lg capitalize text-gray-400">
+                            <h1 className="mb-3 text-primary font-bold text-4xl text-center">Surafel Kassahun</h1>
+                            <p className="text-bright-green text-lg capitalize text-gray-400 text-center">
                                 Full stack web developer 
                             </p>
-                           <div className="flex md:justify-start justify-center " >  <h3 className="text-gray-200 flex gap-2 mt-2" > Addis Ababa, Ethiopia  <MapPin size={24} color="currentColor" /> </h3> </div>
+                           <div className="flex md:justify-center justify-center text-center" >  <h3 className="text-gray-200 flex gap-2 mt-2 text-center" > Addis Ababa, Ethiopia  <MapPin size={24} color="currentColor" /> </h3> </div>
                             <div className={`text-gray-500 items-center flex flex-col justify-center align-middle py-10 max-w-xl`}>
                                 <p className={`text-5xl text-secondary`}> {rightQuote} </p>
-                                <p className="text-pretty text-secondary">
+                                <p className="text-pretty text-secondary text-center">
                                 Specialized in MERN Stack and modern web development, I build high-performance, scalable applications using cutting-edge technologies. Passionate about crafting seamless user experiences and efficient backend systems.
                                 </p>
                                 <p className={`text-5xl text-secondary`}> {leftQuote} </p>
