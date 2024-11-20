@@ -209,13 +209,13 @@ const backendExperience = [
     return (
         <>
             {/* Navigation */}
-            <section className={`py-5 sticky  ${isScrolled ? ' bg-gray-200/25 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
-                <nav className="flex justify-center gap-8 text-white py-4 rounded-lg">
+            <section className={`py-5 sticky ${isScrolled ? 'md:bg-gray-200/25 md:px-0 px-20 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
+                <nav className="flex justify-center gap-4 md:gap-8 text-white py-4 rounded-lg">
                     {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
                         <Link
                             key={index}
                             href={text === "Home" ? "#Home" : `#${text.toLowerCase().replace(" ", "-")}`}
-                            className={`text-primary ${isScrolled ? "font-bold hover:bg-slate-400 px-5 py-2 rounded-xl hover:text-white underline-offset-4": ""} relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full`}
+                            className={`text-primary ${isScrolled ? "font-bold hover:bg-slate-400 px-3 md:px-5 py-2 rounded-xl hover:text-white underline-offset-4": ""} relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full`}
                         >
                             {text}
                         </Link>
@@ -224,7 +224,7 @@ const backendExperience = [
             </section>
 
             {/* Hero Section */}
-            <section id="Home" className={`bg-off-white animate-fadeIn h-screen `}>
+            <section id="Home" className={`bg-off-white animate-fadeIn md:h-screen `}>
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <motion.div
@@ -313,12 +313,14 @@ const backendExperience = [
                             initial="hidden"
                             whileInView={"show"}
                             viewport={{ once: "false", amount: 0.7 }}
-                            className="relative animate-fadeIn rounded-full shadow-lg overflow-hidden "
+                            className="relative animate-fadeIn shadow-lg overflow-hidden"
+                            style={{ aspectRatio: '1 / 1' }}
                         >
                             <img
                                 src="/Bggggpng.png"
                                 alt="Background image showcasing portfolio"
-                                className="w-full h-auto object-cover transition duration-500 hover:scale-105 rounded-lg shadow-lg"
+                                className="w-full h-full object-cover transition duration-500 hover:scale-105"
+                                style={{ clipPath: 'circle(50%)' }}
                             />
                         </motion.div>
                     </div>
