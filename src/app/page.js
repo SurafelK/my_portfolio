@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
-import { Award, Building, Calendar, ChevronUp, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Twitter, TwitterIcon, X, XCircleIcon } from "lucide-react";
+import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
 
 export default function Home() {
     // Initialize state for experience cards
@@ -31,26 +31,44 @@ export default function Home() {
     }
     const rightQuote = '❛'
     const leftQuote = '❜';
-const technologies = [
-  { src: "/physics.png", name: "React" },
-  { src: "/Firebase.png", name: "Firebase" },
-  { src: "/JavaScript.png", name: "JavaScript" },
-  { src: "/Laravel.png", name: "Laravel" },
-  { src: "/MongoDB.png", name: "MongoDB" },
-  { src: "/MySQL.png", name: "MySQL" },
-  { src: "/Node.js.png", name: "Node.js" },
-  { src: "/PHP.png", name: "PHP" },
-  { src: "/Postman.png", name: "Postman" },
-  { src: "/Powershell.png", name: "PowerShell" },
-  { src: "/Tailwind CSS.png", name: "Tailwind CSS" },
-  { src: "/WordPress.png", name: "WordPress" },
-  { src: "/NextLo.png", name: "Next.js" },
-  { src: "/HTML.jpg", name: "Html 5" },
-  { src: "/OIP.jpg", name: "Bootstrap" },
-  { src: "/OIP1.jpg", name: "Git" },
-  { src: "/elec.jpg", name: "Electron" },
-  
-];
+
+    const [frontendSection, setFrontendSection] = useState(false)
+
+    const frontend = [
+      { src: "/physics.png", name: "React" },
+      { src: "/Tailwind CSS.png", name: "Tailwind CSS" },
+      { src: "/WordPress.png", name: "WordPress" },
+      { src: "/bootstrap.png", name: "Bootstrap" },
+      { src: "/electron.png", name: "Electron" },
+      { src: "/next.png", name: "Next.js" },
+      { src: "/html.png", name: "Html 5" }
+    ]
+
+    const cloud = [
+      { src: "/Vercel.png", name: "Vercel" },
+      { src: "/render.png", name: "Render" },
+    ]
+
+    const backend = [
+      { src: "/Firebase.png", name: "Firebase" },
+      { src: "/JavaScript.png", name: "JavaScript" },
+      { src: "/Laravel.png", name: "Laravel" },
+      { src: "/Node.js.png", name: "Node.js" },
+      { src: "/PHP.png", name: "PHP" },
+      { src: "/express.png", name: "Express.js" },
+     
+    ]
+
+    const database = [
+      { src: "/MongoDB.png", name: "MongoDB" },
+      { src: "/MySQL.png", name: "MySQL" },
+    ]
+
+    const devUtilities = [
+      { src: "/OIP1.jpg", name: "Git" },
+      { src: "/Postman.png", name: "Postman" },
+    ]
+
 
 
 const experience = [
@@ -444,38 +462,140 @@ const backendExperience = [
             {/* Technologies */}
             
             <section id="technologies" className="py-20 bg-off-white border-t-8 border-bright-green cursor-pointer overflow-hidden">
-              <div className="container mx-auto text-center">
-                <h1 className="text-primary text-5xl font-bold mb-12 transition-all duration-300 hover:scale-105">
-                  Technologies Experienced
+              <div className="container mx-auto text-center max-w-screen-lg">
+                <h1 className="text-white text-4xl font-bold mb-12 transition-all duration-300 hover:scale-105 capitalize">
+                  Technical skills
                 </h1>
-                <div
-                  className={`flex flex-wrap justify-center ${isHovered ? 'animate-paused' : 'animate-scroll'}`} // Enable wrapping
-                >
-                  {technologies.map((tech, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="relative mx-4 mb-8 transition-transform duration-300 transform hover:scale-110" // Add margin-bottom for spacing
-                      onMouseEnter={() => {
-                        setHoveredTech(tech.name);
-                        setIsHovered(true);
-                      }}
-                      onMouseLeave={() => {
-                        setHoveredTech(null);
-                        setIsHovered(false);
-                      }}
-                    >
-                      <img
-                        src={tech.src}
-                        className="w-20 h-20 rounded-full shadow-lg bg-white transition-shadow duration-300 hover:shadow-xl" // Shadow effect on hover
-                        onError={(e) => (e.target.src = '/fallback-image.png')}
-                      />
-                      {hoveredTech === tech.name && (
-                        <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 bg-black text-white px-3 py-2 rounded-md text-sm shadow-lg">
-                          {tech.name}
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
+                
+                <div className={`grid md:grid-cols-5 grid-cols-2 gap-6`}  >
+                  {/* frontend */}
+                  <div onMouseEnter={ () => {setFrontendSection(true)} } >
+                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${ frontend ? "scale-150" : "  "}`}>
+                      <h2 className="text-white capitalize flex gap-2 text-base"><Code size={20} className="text-gray-400" /> frontend</h2>
+                    </div>
+                    <div>
+                      {frontend.map((item, index) => (
+                        <motion.div 
+                          key={index} 
+                          initial={{ opacity: 0, scale: 0.8 }} 
+                          animate={{ opacity: 1, scale: 1 }} 
+                          transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for staggered effect
+                          className="flex text-xs mb-2"
+                        >
+                          <motion.h2 variants={fadeIn("up", 0.5)}
+                                      initial="hidden"
+                                      whileInView={"show"}
+                                      viewport={{ once: "true", amount: 0.7 }} className="text-white hover:text-primary hover:underline underline-offset-4 hover: hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
+                            <img src={item.src} alt={item.name || "icon"} className="h-4 w-4 object-contain" />
+                            <span>{item.name}</span>
+                          </motion.h2>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                  {/* Backend */}
+                  <div onMouseEnter={ () => {setFrontendSection(true)} } >
+                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${ frontend ? "scale-150" : "  "}`}>
+                      <h2 className="text-white capitalize flex gap-2 text-base"><Server size={20} className="text-gray-400" /> backend</h2>
+                    </div>
+                    <div>
+                      {backend.map((item, index) => (
+                        <motion.div 
+                          key={index} 
+                          initial={{ opacity: 0, scale: 0.8 }} 
+                          animate={{ opacity: 1, scale: 1 }} 
+                          transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for staggered effect
+                          className="flex text-xs mb-2"
+                        >
+                          <motion.h2 variants={fadeIn("up", 0.5)}
+                                      initial="hidden"
+                                      whileInView={"show"}
+                                      viewport={{ once: "true", amount: 0.7 }} className="text-white hover:text-primary hover:underline underline-offset-4 hover: hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
+                            <img src={item.src} alt={item.name || "icon"} className="h-4 w-4 object-contain" />
+                            <span>{item.name}</span>
+                          </motion.h2>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Databases */}
+                  <div onMouseEnter={ () => {setFrontendSection(true)} } >
+                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${ frontend ? "scale-150" : "  "}`}>
+                      <h2 className="text-white capitalize flex gap-2 text-base"><Database size={20} className="text-gray-400" /> Databases</h2>
+                    </div>
+                    <div>
+                      {database.map((item, index) => (
+                        <motion.div 
+                          key={index} 
+                          initial={{ opacity: 0, scale: 0.8 }} 
+                          animate={{ opacity: 1, scale: 1 }} 
+                          transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for staggered effect
+                          className="flex text-xs mb-2"
+                        >
+                          <motion.h2 variants={fadeIn("up", 0.5)}
+                                      initial="hidden"
+                                      whileInView={"show"}
+                                      viewport={{ once: "true", amount: 0.7 }} className="text-white hover:text-primary hover:underline underline-offset-4 hover: hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
+                            <img src={item.src} alt={item.name || "icon"} className="h-4 w-4 object-contain" />
+                            <span>{item.name}</span>
+                          </motion.h2>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Dev Utilities */}
+                  <div onMouseEnter={ () => {setFrontendSection(true)} } >
+                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${ frontend ? "scale-150" : "  "}`}>
+                      <h2 className="text-white capitalize flex gap-2 text-base"><Wrench size={20} className="text-gray-400" /> Utilities</h2>
+                    </div>
+                    <div>
+                      {devUtilities.map((item, index) => (
+                        <motion.div 
+                          key={index} 
+                          initial={{ opacity: 0, scale: 0.8 }} 
+                          animate={{ opacity: 1, scale: 1 }} 
+                          transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for staggered effect
+                          className="flex text-xs mb-2"
+                        >
+                          <motion.h2 variants={fadeIn("up", 0.5)}
+                                      initial="hidden"
+                                      whileInView={"show"}
+                                      viewport={{ once: "true", amount: 0.7 }} className="text-white hover:text-primary hover:underline underline-offset-4 hover: hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
+                            <img src={item.src} alt={item.name || "icon"} className="h-4 w-4 object-contain" />
+                            <span>{item.name}</span>
+                          </motion.h2>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Cloud */}
+                  <div onMouseEnter={ () => {setFrontendSection(true)} } >
+                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${ frontend ? "scale-150" : "  "}`}>
+                      <h2 className="text-white capitalize flex gap-2 text-base"><Cloud size={20} className="text-gray-400" /> Cloud</h2>
+                    </div>
+                    <div>
+                      {cloud.map((item, index) => (
+                        <motion.div 
+                          key={index} 
+                          initial={{ opacity: 0, scale: 0.8 }} 
+                          animate={{ opacity: 1, scale: 1 }} 
+                          transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for staggered effect
+                          className="flex text-xs mb-2"
+                        >
+                          <motion.h2 variants={fadeIn("up", 0.5)}
+                                      initial="hidden"
+                                      whileInView={"show"}
+                                      viewport={{ once: "true", amount: 0.7 }} className="text-white hover:text-primary hover:underline underline-offset-4 hover: hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
+                            <img src={item.src} alt={item.name || "icon"} className="h-4 w-4 object-contain" />
+                            <span>{item.name}</span>
+                          </motion.h2>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
