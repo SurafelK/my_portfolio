@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
-import { Award, Building, Calendar, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Twitter, TwitterIcon } from "lucide-react";
+import { Award, Building, Calendar, ChevronUp, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Twitter, TwitterIcon, X, XCircleIcon } from "lucide-react";
 
 export default function Home() {
     // Initialize state for experience cards
@@ -264,8 +264,7 @@ const backendExperience = [
                               <li key={index} className="relative flex flex-col items-center w-full md:w-1/2">
                                   <motion.div
                                       className={`bg-white p-8 rounded-lg border border-gray-200 shadow-md transition transform hover:-translate-y-2 hover:shadow-xl duration-300 relative cursor-pointer`}
-                                      onPointerEnter={() => toggleCard(item.key)}
-                                      onPointerLeave={() => toggleCard(item.key)}
+                                     
                                       variants={fadeIn("up", 0.5)}
                                       initial="hidden"
                                       whileInView={"show"}
@@ -285,12 +284,24 @@ const backendExperience = [
                                           <ul className="list-disc pl-5 text-gray-700 text-sm transition-opacity duration-700">
                                               {item.description.map((desc, idx) => (
                                                   <motion.li key={idx} variants={fadeIn("up", 0.5)} initial="hidden" whileInView={"show"} className="flex items-center mb-2">
-                                                      <span className="mr-2 text-primary">•</span>
-                                                      {desc}
+                                                     <li>  {desc} </li>
                                                   </motion.li>
                                               ))}
                                           </ul>
                                       )}
+
+                                   { cardStates[item.key] && (  <div className="mt-5 flex justify-center" onClick={() => toggleCard(item.key)}> 
+                                     <button className="bg-primary flex justify-center w-52 py-2 px-5 text-white font-semibold rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105 hover:bg-opacity-80 hover:shadow-lg">
+                                        close <ChevronUp />
+                                    </button> </div>)  }
+
+                                    { !cardStates[item.key] && (  
+                                        <div className="mt-5 flex justify-center" onClick={() => toggleCard(item.key)}>  
+                                            <button className="bg-primary justify-center w-52 py-2 px-5 text-white font-semibold rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105 hover:bg-opacity-80 hover:shadow-lg">
+                                                See more
+                                            </button> 
+                                        </div>
+                                    )}  
                                   </motion.div>
 
                                   {/* Disc indicator on the horizontal line */}
