@@ -198,7 +198,7 @@ const backendExperience = [
     return (
         <>
             {/* Navigation */}
-            <section className={`py-5 sticky top-0 ${isScrolled ? ' bg-gray-200/25 rounded-3xl mt-5' : ''} z-10 shadow-lg`}>
+            <section className={`py-5 sticky  ${isScrolled ? ' bg-gray-200/25 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
                 <nav className="flex justify-center gap-8 text-white py-4 rounded-lg">
                     {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
                         <Link
