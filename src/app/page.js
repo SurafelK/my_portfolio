@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
-import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
+import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Download, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
 
 export default function Home() {
     // Initialize state for experience cards
@@ -164,6 +164,17 @@ const backendExperience = [
         )}
       </div>
     );
+
+    const downloadResume = () =>
+    {
+      // Create an anchor element
+      const link = document.createElement('a');
+      link.href = '/surafelKassahunResume.pdf'; // Set the URL of the resume
+      link.download = 'surafelKassahunResume.pdf'; // Set the name for the downloaded file
+      document.body.appendChild(link); // Append the link to the body
+      link.click(); // Trigger the download
+      document.body.removeChild(link); // Remove the link from the document
+    }
     
 
     const [openIndex, setOpenIndex] = useState(null);
@@ -213,7 +224,7 @@ const backendExperience = [
             </section>
 
             {/* Hero Section */}
-            <section id="Home" className={`bg-off-white animate-fadeIn`}>
+            <section id="Home" className={`bg-off-white animate-fadeIn h-screen `}>
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                         <motion.div
@@ -223,30 +234,91 @@ const backendExperience = [
                             viewport={{ once: "false", amount: 0.7 }}
                             className="text-center md:text-left"
                         >
-                            <h1 className="mb-3 text-primary font-bold text-4xl text-center">Surafel Kassahun</h1>
-                            <p className="text-bright-green text-lg capitalize text-gray-400 text-center">
-                                Full stack web developer 
+                            <h1 className="mb-3 text-primary font-bold text-5xl text-center md:text-6xl">Surafel Kassahun</h1>
+                            <p className="text-bright-green text-lg capitalize text-gray-400 text-center mb-4">
+                                Full Stack Web Developer
                             </p>
-                           <div className="flex md:justify-center justify-center text-center" >  <h3 className="text-gray-200 flex gap-2 mt-2 text-center" > Addis Ababa, Ethiopia  <MapPin size={24} color="currentColor" /> </h3> </div>
-                            <div className={`text-gray-500 items-center flex flex-col justify-center align-middle py-10 max-w-xl`}>
-                                <p className={`text-5xl text-secondary`}> {rightQuote} </p>
-                                <p className="text-pretty text-secondary text-center">
-                                Specialized in MERN Stack and modern web development, I build high-performance, scalable applications using cutting-edge technologies. Passionate about crafting seamless user experiences and efficient backend systems.
-                                </p>
-                                <p className={`text-5xl text-secondary`}> {leftQuote} </p>
+                            <div className="flex md:justify-center justify-center text-center">
+                                <h3 className="text-gray-200 flex gap-2 mt-2 text-center">
+                                    Addis Ababa, Ethiopia <MapPin size={24} color="currentColor" />
+                                </h3>
                             </div>
+                            <div className={`text-gray-500 items-center flex flex-col justify-center align-middle py-10 max-w-xl`}>
+                                <p className={`text-6xl text-secondary`}> {rightQuote} </p>
+                                <p className="text-pretty text-secondary text-center text-lg">
+                                    Specialized in MERN Stack and modern web development, I build high-performance, scalable applications using cutting-edge technologies. Passionate about crafting seamless user experiences and efficient backend systems.
+                                </p>
+                                <p className={`text-6xl text-secondary`}> {leftQuote} </p>
+                            </div>
+
+                            {/* Contact Me */}
+                            <div className="flex flex-col justify-center align-middle items-center">
+                                <div className="flex justify-center">
+                                    <h4 className="font-semibold text-lg mb-4 text-primary">Follow Me</h4>
+                                </div>
+
+                                <div className="flex flex-col justify-center items-center space-y-4">
+                                    <div className="flex space-x-4">
+                                        <ul className="flex space-x-4">
+                                            <li>
+                                                <a
+                                                    href="https://www.linkedin.com/in/surafel-kassahun-92a048298"
+                                                    className="hover:text-secondary transition duration-200"
+                                                    aria-label="LinkedIn"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <Linkedin className="w-10 h-10 text-white transition-transform transform hover:scale-110" />
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="https://github.com/SurafelK"
+                                                    className="hover:text-secondary transition duration-200"
+                                                    aria-label="GitHub"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                >
+                                                    <GithubIcon className="w-10 h-10 text-white transition-transform transform hover:scale-110" />
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a
+                                                    href="mailto:surafelkassahun21@gmail.com"
+                                                    className="hover:text-secondary transition duration-200"
+                                                    aria-label="Email"
+                                                >
+                                                    <Mail className="w-10 h-10 text-white transition-transform transform hover:scale-110" />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div>
+                                        <button
+                                            className="border-2 border-white text-white flex items-center gap-3 px-6 py-2 rounded-lg hover:bg-primary hover:border-black hover:text-black transition duration-200 ease-in-out transform hover:scale-105"
+                                            aria-label="Download Resume"
+                                            onClick={ downloadResume}
+                                        >
+                                            <Download className="w-5 h-5" />
+                                            Download Resume
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </motion.div>
                         <motion.div
                             variants={fadeIn("right", 0.1)}
                             initial="hidden"
                             whileInView={"show"}
                             viewport={{ once: "false", amount: 0.7 }}
-                            className="relative animate-fadeIn"
+                            className="relative animate-fadeIn rounded-full shadow-lg overflow-hidden "
                         >
                             <img
                                 src="/Bggggpng.png"
                                 alt="Background image showcasing portfolio"
-                                className="w-full h-auto transform transition duration-500 hover:scale-105"
+                                className="w-full h-auto object-cover transition duration-500 hover:scale-105 rounded-lg shadow-lg"
                             />
                         </motion.div>
                     </div>
@@ -1182,3 +1254,4 @@ const backendExperience = [
         </>
     );
 }
+
