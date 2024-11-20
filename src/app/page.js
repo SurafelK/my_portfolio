@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
 import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
@@ -53,7 +53,7 @@ export default function Home() {
       { src: "/Firebase.png", name: "Firebase" },
       { src: "/JavaScript.png", name: "JavaScript" },
       { src: "/Laravel.png", name: "Laravel" },
-      { src: "/Node.js.png", name: "Node.js" },
+      { src: "/node.png", name: "Node.js" },
       { src: "/PHP.png", name: "PHP" },
       { src: "/express.png", name: "Express.js" },
      
@@ -182,16 +182,29 @@ const backendExperience = [
       { question: 'What is the difference between a Full-Stack Developer and a Software Engineer?', answer: 'A Full-Stack Developer specializes in both front-end and back-end development of web applications, while a Software Engineer may focus on broader software development principles and can work on various types of software projects beyond web applications.' },
     ];
     
+    const [isScrolled, setIsScrolled] = useState(false); // State to track scroll position
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50); // Change 50 to the scroll position you want
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
         <>
             {/* Navigation */}
-            <section className="py-5 sticky top-0 bg-gradient-to-r from-deep-blue to-blue-800 z-10 shadow-lg">
-                <nav className="flex justify-center gap-8 text-white  py-4 rounded-lg">
+            <section className={`py-5 sticky top-0 ${isScrolled ? ' bg-gray-200/25 rounded-3xl mt-5' : ''} z-10 shadow-lg`}>
+                <nav className="flex justify-center gap-8 text-white py-4 rounded-lg">
                     {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
                         <Link
                             key={index}
                             href={text === "Home" ? "#Home" : `#${text.toLowerCase().replace(" ", "-")}`}
-                            className="text-primary relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full"
+                            className={`text-primary ${isScrolled ? "font-bold hover:bg-slate-400 px-5 py-2 rounded-xl hover:text-white underline-offset-4": ""} relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full`}
                         >
                             {text}
                         </Link>
