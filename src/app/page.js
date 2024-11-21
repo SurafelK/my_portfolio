@@ -237,20 +237,27 @@ const backendExperience = [
       </div>
 
         {/* Nav Links */}
-        <ul className="flex flex-col items-start p-4 space-y-4  ">
-          {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
-                       <div className="border-b w-full p-2 hover:bg-black rounded-md hover:p-5 hover:scale-110 hover:text-white" >
-                           <Link
-                                key={index}
-                                href={text === "Home" ? "#Home" : `#${text.toLowerCase().replace(" ", "-")}`}
-                                onClick={ () => setIsNavBar(false) }
-                                className={` ${isScrolled ? "font-bold  px-3 md:px-5 py-2 rounded-none   underline-offset-4": ""} relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full`}
-                            >
-                                {text}
-                            </Link>
-                       </div>
-          ))}
-        </ul>
+      <ul className="flex flex-col items-start p-4 space-y-4">
+        {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
+          <div
+            key={index} // Place the key here
+            className="border-b w-full p-2 hover:bg-black rounded-md hover:p-5 hover:scale-110 hover:text-white"
+          >
+            <Link
+              href={text === "Home" ? "#Home" : `#${text.toLowerCase().replace(" ", "-")}`}
+              onClick={() => setIsNavBar(false)}
+              className={`${
+                isScrolled
+                  ? "font-bold px-3 md:px-5 py-2 rounded-none underline-offset-4"
+                  : ""
+              } relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full`}
+            >
+              {text}
+            </Link>
+          </div>
+        ))}
+      </ul>
+
       </div>
 
       {/* Background Overlay */}
