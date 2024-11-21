@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
-import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Download, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
+import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Download, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Menu, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
 
 export default function Home() {
     // Initialize state for experience cards
@@ -140,30 +140,12 @@ const backendExperience = [
     const [contactUsPopup, setContactUsPopup] = useState(false)
     const [isTheradermOpen, setisTheradermOpen] = useState(false)
     const [isShopBot, setIsShopBot] = useState(false)
+    const [isNavBar, setIsNavBar] = useState(false)
 
-    const AccordionItem = ({ question, answer, isOpen, onToggle }) => (
-      <div className="border-b border-zinc-300">
-        <button
-          className="flex justify-between items-center w-full p-4 transition duration-200 ease-in-out bg-zinc-100 text-primary-foreground hover:bg-white/80 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
-          onClick={onToggle}
-        >
-          <span className="font-semibold text-lg">{question}</span>
-          <svg
-            className={`w-6 h-6 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
-        </button>
-        {isOpen && (
-          <div className="p-4 bg-card rounded-b-md shadow-md bg-zinc-300">
-            <p className="text-sm text-black ">{answer}</p>
-          </div>
-        )}
-      </div>
-    );
+    const toogleNavBar = () =>
+    {
+      setIsNavBar(!isNavBar)
+    }
 
     const downloadResume = () =>
     {
@@ -209,7 +191,7 @@ const backendExperience = [
     return (
         <>
             {/* Navigation */}
-            <section className={`py-5 sticky ${isScrolled ? 'md:bg-gray-200/25 md:px-0 px-20 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
+            <section className={`py-5 sticky hidden md:block ${isScrolled ? 'md:bg-gray-200/25 md:px-0 px-20 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
                 <nav className="flex justify-center gap-4 md:gap-8 text-white py-4 rounded-lg">
                     {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
                         <Link
@@ -223,6 +205,62 @@ const backendExperience = [
                 </nav>
             </section>
 
+
+
+            {/* Movile Nav Bar */}
+
+            <div  className={`py-5 sticky block md:hidden ${isScrolled ? ' bg-slate-600/25 px-20 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
+              {/* Hamburger Icon */}
+              {  
+                !isNavBar && (    <button
+                  onClick={toogleNavBar}
+                  className="p-2 text-white  rounded-md"
+                >
+                  <Menu className="text-primary text-lg cursor-pointer" onClick={ toogleNavBar } />
+                </button>)
+              }
+
+      {/* Mobile Nav Bar */}
+      <div
+        className={`fixed top-0 left-0 h-full w-64 bg-gray-400/75 z-50 transform ${
+          isNavBar ? 'translate-x-0' : '-translate-x-full'
+        } duration-300 ease-in-out`}
+      >
+      <div className="py-4 border-b bg-gray-200/50  shadow-lg " >
+          {/* Close Button */}
+          <button
+            onClick={toogleNavBar}
+            className="p-2 text-black bg-red-500 rounded-md m-4 "
+          >
+            <X/>
+        </button>
+      </div>
+
+        {/* Nav Links */}
+        <ul className="flex flex-col items-start p-4 space-y-4  ">
+          {["Home", "Experience", "Technologies", "Projects"].map((text, index) => (
+                       <div className="border-b w-full p-2 hover:bg-black rounded-md hover:p-5 hover:scale-110 hover:text-white" >
+                           <Link
+                                key={index}
+                                href={text === "Home" ? "#Home" : `#${text.toLowerCase().replace(" ", "-")}`}
+                                onClick={ () => setIsNavBar(false) }
+                                className={` ${isScrolled ? "font-bold  px-3 md:px-5 py-2 rounded-none   underline-offset-4": ""} relative after:content-[''] after:block after:w-0 after:h-[2px] after:bg-yellow-400 after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-300 hover:after:w-full`}
+                            >
+                                {text}
+                            </Link>
+                       </div>
+          ))}
+        </ul>
+      </div>
+
+      {/* Background Overlay */}
+          {isNavBar && (
+            <div
+              className="fixed inset-0 bg-black/50 z-40"
+              onClick={toogleNavBar}
+            ></div>
+          )}
+        </div>
             {/* Hero Section */}
             <section id="Home" className={`bg-off-white animate-fadeIn md:h-screen `}>
                 <div className="container mx-auto px-4">
@@ -268,7 +306,7 @@ const backendExperience = [
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
-                                                    <Linkedin className="w-10 h-10 text-white transition-transform transform hover:scale-110" />
+                                                    <Linkedin className="w-10 h-10 hover:text-blue-800 text-white transition-transform transform hover:scale-110" />
                                                 </a>
                                             </li>
                                             <li>
@@ -279,7 +317,7 @@ const backendExperience = [
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                 >
-                                                    <GithubIcon className="w-10 h-10 text-white transition-transform transform hover:scale-110" />
+                                                    <GithubIcon className="w-10 h-10 text-white transition-transform hover:text-black transform hover:scale-110" />
                                                 </a>
                                             </li>
                                             <li>
@@ -288,7 +326,7 @@ const backendExperience = [
                                                     className="hover:text-secondary transition duration-200"
                                                     aria-label="Email"
                                                 >
-                                                    <Mail className="w-10 h-10 text-white transition-transform transform hover:scale-110" />
+                                                    <Mail className="w-10 h-10 text-white hover:text-red-600 transition-transform transform hover:scale-110" />
                                                 </a>
                                             </li>
                                         </ul>
