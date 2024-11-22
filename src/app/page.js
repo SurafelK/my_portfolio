@@ -209,7 +209,7 @@ const backendExperience = [
 
             {/* Movile Nav Bar */}
 
-            <div  className={`py-5 sticky block md:hidden ${isScrolled ? ' bg-slate-600/25 px-20 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
+            <div  className={`py-5 sticky block md:hidden ${isScrolled ? ' bg-slate-600/25 rounded-3xl mt-5 top-5' : 'top-5'} z-10 shadow-lg`}>
               {/* Hamburger Icon */}
               {  
                 !isNavBar && (    <button
