@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
-import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Download, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Menu, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
+import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Download, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Menu, Phone, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
 
 export default function Home() {
     // Initialize state for experience cards
@@ -298,13 +298,23 @@ const backendExperience = [
 
                             {/* Contact Me */}
                             <div className="flex flex-col justify-center align-middle items-center">
-                                <div className="flex justify-center">
-                                    <h4 className="font-semibold text-lg mb-4 text-primary">Follow Me</h4>
-                                </div>
+                            <div className="flex justify-center"> <h4 className="text-2xl font-bold mb-4 text-primary capitalize">Get in Touch with Me</h4> </div>
 
                                 <div className="flex flex-col justify-center items-center space-y-4">
                                     <div className="flex space-x-4">
                                         <ul className="flex space-x-4">
+                                        <li>
+                                        <a
+                                                href="tel:+251963626110"
+                                                className="hover:text-secondary transition duration-200"
+                                                aria-label="Call Me"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                <Phone className="w-10 h-10 hover:text-primary text-white transition-transform transform hover:scale-110" />
+                                            </a>
+
+                                            </li>
                                             <li>
                                                 <a
                                                     href="https://www.linkedin.com/in/surafel-kassahun-92a048298"
