@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "./Variables";
 import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Download, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Menu, Phone, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger); // Register ScrollTrigger
 
 export default function Home() {
     // Initialize state for experience cards
@@ -17,6 +20,42 @@ export default function Home() {
         setCardStates((prev) => ({ ...prev, [key]: !prev[key] }));
     };
     const tgBot = '/shop.jpg'
+
+    useEffect(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+  
+      tl.fromTo("#pic", 
+        { opacity: 0, scale: 0.8, y: 20 }, 
+        { opacity: 1, scale: 1, y: 0, duration: 0.6 }
+      )
+      .fromTo("#name", 
+        { opacity: 0, x: -200, letterSpacing: "-2px" }, 
+        { opacity: 1, x: 0, letterSpacing: "0px", duration: 0.5 }, 
+        "+=0.2" // Slight delay before the next animation
+      )
+      .fromTo("#position", 
+        { opacity: 0, x: -200, letterSpacing: "-2px" }, 
+        { opacity: 1, x: 0, letterSpacing: "0px", duration: 0.7 }
+      )
+      .fromTo("#location", 
+        { opacity: 0, x: -200, letterSpacing: "-2px" }, 
+        { opacity: 1, x: 0, letterSpacing: "0px", duration: 0.7 }
+      )
+      .fromTo(".quote", 
+        { opacity: 0, x: -200, letterSpacing: "-2px" }, 
+        { opacity: 1, x: 0, letterSpacing: "0px", duration: 1, stagger: 0.3 }
+      )
+      .fromTo("#defination", 
+        { opacity: 0, x: -200, letterSpacing: "-2px" },
+        { opacity: 1, x: 0, letterSpacing: "0px", duration: 1 }
+      );
+  
+    }, []);
+
+
+    const frontendRef = useRef(null);
+  
+    
 
     const [detailDescription, setDetailDescription] = useState(false)
     const [projects, setProjects] = useState(false)
@@ -33,6 +72,59 @@ export default function Home() {
     const leftQuote = '❜';
 
     const [frontendSection, setFrontendSection] = useState(false)
+
+    useEffect(() => {
+  
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: frontendRef.current,
+            start: "top 80%", // Start animation when 80% of viewport reaches the section
+            end: "bottom 60%", // Optional end position
+            toggleActions: "play none none none", // Play once when triggered
+          },
+        });
+        
+
+        tl.fromTo(
+          ".frontend-item",
+          { opacity: 0, y: 20, scale: 0.8 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.5,
+            stagger: 0.1, // Stagger animation
+            ease: "power2.out",
+          }
+        );
+      
+    }, [frontendSection]);
+    const [backendSection, setBackendSection] = useState(false);
+    const backendRef = useRef(null);
+
+    useEffect(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: backendRef.current,
+          start: "top 80%", // Start animation when 80% of viewport reaches the section
+          end: "bottom 60%", // Optional end position
+          toggleActions: "play none none none", // Play once when triggered
+        },
+      });
+  
+      tl.fromTo(
+        ".backend-item",
+        { opacity: 0, y: 30, scale: 0.8 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.15, // Stagger animation for each item
+          ease: "power2.out",
+        }
+      );
+    }, [backendSection]);
 
     const frontend = [
       { src: "/physics.png", name: "React" },
@@ -279,21 +371,21 @@ const backendExperience = [
                             viewport={{ once: "false", amount: 0.7 }}
                             className="text-center md:text-left"
                         >
-                            <h1 className="mb-3 text-primary font-bold text-5xl text-center md:text-6xl">Surafel Kassahun</h1>
-                            <p className="text-bright-green text-lg capitalize text-gray-400 text-center mb-4">
+                            <h1 className="mb-3 text-primary font-bold text-5xl text-center md:text-6xl opacity-0" id="name" >Surafel Kassahun</h1>
+                            <p className="text-bright-green text-lg capitalize text-gray-400 text-center mb-4" id="position" >
                                 Full Stack Web Developer
                             </p>
                             <div className="flex md:justify-center justify-center text-center">
-                                <h3 className="text-gray-200 flex gap-2 mt-2 text-center">
+                                <h3 className="text-gray-200 flex gap-2 mt-2 text-center" id="location">
                                     Addis Ababa, Ethiopia <MapPin size={24} color="currentColor" />
                                 </h3>
                             </div>
                             <div className={`text-gray-500 items-center flex flex-col justify-center align-middle py-10 max-w-xl`}>
-                                <p className={`text-6xl text-secondary`}> {rightQuote} </p>
-                                <p className="text-pretty text-secondary text-center text-lg">
+                                <p className={`text-6xl text-secondary quote`} > {rightQuote} </p>
+                                <p className="text-pretty text-secondary text-center text-lg" id="defination" >
                                     Specialized in MERN Stack and modern web development, I build high-performance, scalable applications using cutting-edge technologies. Passionate about crafting seamless user experiences and efficient backend systems.
                                 </p>
-                                <p className={`text-6xl text-secondary`}> {leftQuote} </p>
+                                <p className={`text-6xl text-secondary quote`}> {leftQuote} </p>
                             </div>
 
                             {/* Contact Me */}
@@ -363,13 +455,14 @@ const backendExperience = [
                             </div>
 
                         </motion.div>
-                        <motion.div
+                        <div
                             variants={fadeIn("right", 0.1)}
                             initial="hidden"
                             whileInView={"show"}
                             viewport={{ once: "false", amount: 0.7 }}
-                            className="relative animate-fadeIn shadow-lg overflow-hidden"
+                            className="relative animate-fadeIn shadow-lg overflow-hidden opacity-0"
                             style={{ aspectRatio: '1 / 1' }}
+                            id="pic"
                         >
                             <img
                                 src="/Bggggpng.png"
@@ -377,7 +470,7 @@ const backendExperience = [
                                 className="w-full h-full object-cover transition duration-500 hover:scale-105"
                                 style={{ clipPath: 'circle(50%)' }}
                             />
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -611,55 +704,58 @@ const backendExperience = [
                 
                 <div className={`grid md:grid-cols-5 grid-cols-2 gap-6`}  >
                   {/* frontend */}
-                  <div onMouseEnter={ () => {setFrontendSection(true)} } >
-                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${ frontend ? "scale-150" : "  "}`}>
-                      <h2 className="text-white capitalize flex gap-2 text-base"><Code size={20} className="text-gray-400" /> frontend</h2>
+                  <div 
+                    onMouseEnter={() => setFrontendSection(true)}
+                    onMouseLeave={() => setFrontendSection(false)} // Optional: Reset on mouse leave
+                    ref={frontendRef}
+                  >
+                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${frontendSection ? "scale-150 transition-transform duration-300" : ""}`}>
+                      <h2 className="text-white capitalize flex gap-2 text-base">
+                        <Code size={20} className="text-gray-400" /> frontend
+                      </h2>
                     </div>
+
                     <div>
                       {frontend.map((item, index) => (
-                        <motion.div 
-                          key={index} 
-                          initial={{ opacity: 0, scale: 0.8 }} 
-                          animate={{ opacity: 1, scale: 1 }} 
-                          transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for staggered effect
-                          className="flex text-xs mb-2"
+                        <div 
+                          key={index}
+                          className="frontend-item flex text-xs mb-2 opacity-0 transform scale-80" // Initial state (hidden)
                         >
-                          <motion.h2 variants={fadeIn("up", 0.5)}
-                                      initial="hidden"
-                                      whileInView={"show"}
-                                      viewport={{ once: "true", amount: 0.7 }} className="text-white hover:text-primary hover:underline underline-offset-4 hover: hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
+                          <h2 className="text-white hover:text-primary hover:underline underline-offset-4 hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
                             <img src={item.src} alt={item.name || "icon"} className="h-4 w-4 object-contain" />
                             <span>{item.name}</span>
-                          </motion.h2>
-                        </motion.div>
+                          </h2>
+                        </div>
                       ))}
                     </div>
                   </div>
                   {/* Backend */}
-                  <div onMouseEnter={ () => {setFrontendSection(true)} } >
-                    <div className={`flex border-b-2 max-w-28 pb-2 mb-5 ${ frontend ? "scale-150" : "  "}`}>
-                      <h2 className="text-white capitalize flex gap-2 text-base"><Server size={20} className="text-gray-400" /> backend</h2>
+                  <div ref={backendRef}
+                  onMouseEnter={() => setBackendSection(true)}
+                  onMouseLeave={() => setBackendSection(false)} // Optional: Reset on mouse leave
+              
+                   className="backend-section">
+                    <div className="flex border-b-2 max-w-28 pb-2 mb-5 transition-transform duration-300">
+                      <h2 className="text-white capitalize flex gap-2 text-base">
+                        <Server size={20} className="text-gray-400" /> backend
+                      </h2>
                     </div>
+
                     <div>
                       {backend.map((item, index) => (
-                        <motion.div 
-                          key={index} 
-                          initial={{ opacity: 0, scale: 0.8 }} 
-                          animate={{ opacity: 1, scale: 1 }} 
-                          transition={{ duration: 0.3, delay: index * 0.1 }} // Delay for staggered effect
-                          className="flex text-xs mb-2"
+                        <div 
+                          key={index}
+                          className="backend-item flex text-xs mb-2 opacity-0 transform scale-80" // Initial state (hidden)
                         >
-                          <motion.h2 variants={fadeIn("up", 0.5)}
-                                      initial="hidden"
-                                      whileInView={"show"}
-                                      viewport={{ once: "true", amount: 0.7 }} className="text-white hover:text-primary hover:underline underline-offset-4 hover: hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
+                          <h2 className="text-white hover:text-primary hover:underline underline-offset-4 hover:p-2 hover:scale-150 capitalize flex items-center gap-2">
                             <img src={item.src} alt={item.name || "icon"} className="h-4 w-4 object-contain" />
                             <span>{item.name}</span>
-                          </motion.h2>
-                        </motion.div>
+                          </h2>
+                        </div>
                       ))}
                     </div>
                   </div>
+
 
                   {/* Databases */}
                   <div onMouseEnter={ () => {setFrontendSection(true)} } >
