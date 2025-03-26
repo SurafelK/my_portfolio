@@ -7,6 +7,8 @@ import { fadeIn } from "./Variables";
 import { Award, Building, Calendar, ChevronUp, Cloud, Code, Database, Download, Github, GithubIcon, Instagram, Linkedin, Mail, MapPin, Menu, Phone, Server, Twitter, TwitterIcon, Wrench, X, XCircleIcon } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -14,7 +16,7 @@ export default function Home() {
     const [cardStates, setCardStates] = useState({ santimPay: false, tilla: false });
     const [isOpen, setIsOpen] = useState(false);
     const [TheradermDetailDescription, setTheradermDetailDescription] = useState(false);
-    const [isAVLOpen, setIsAVLOpen] = useState(false); // Fixed variable name
+    const [isAVLOpen, setIsAVLOpen] = useState(false);
     const [tillaShopDescription, setTillaShopDescription] = useState(false);
     const [projects, setProjects] = useState(false);
     const [frontendSection, setFrontendSection] = useState(false);
@@ -440,10 +442,13 @@ export default function Home() {
                         >
                             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-30 animate-pulse"></div>
-                                <img
+                                <Image
                                     src="/Bggggpng.png"
                                     alt="Surafel Kassahun"
+                                    width={384}
+                                    height={384}
                                     className="relative w-full h-full object-cover rounded-full border-4 border-gray-800 shadow-2xl z-10 transition-transform duration-500 hover:scale-105"
+                                    priority
                                 />
                             </div>
                         </motion.div>
@@ -481,9 +486,11 @@ export default function Home() {
                                     
                                     <div className={`bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700 transition-all duration-300 hover:border-primary ${cardStates[item.key] ? 'h-auto' : 'h-64 overflow-hidden'}`}>
                                         <div className="flex items-center mb-4">
-                                            <img 
+                                            <Image 
                                                 src={item.image} 
                                                 alt={item.title} 
+                                                width={64}
+                                                height={64}
                                                 className="w-16 h-16 object-contain mr-4"
                                             />
                                             <div>
@@ -540,9 +547,11 @@ export default function Home() {
                                 className="bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700"
                             >
                                 <div className="flex items-center mb-4">
-                                    <img 
+                                    <Image 
                                         src={item.image} 
                                         alt={item.title} 
+                                        width={64}
+                                        height={64}
                                         className="w-16 h-16 object-contain mr-4"
                                     />
                                     <div>
@@ -583,7 +592,7 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Technical Skills</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Technologies I've worked with to create amazing digital experiences</p>
+                        <p className="text-gray-400 max-w-2xl mx-auto">Technologies I&apos;ve worked with to create amazing digital experiences</p>
                         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4"></div>
                     </div>
 
@@ -606,9 +615,11 @@ export default function Home() {
                                         className="frontend-item flex items-center opacity-0"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
+                                            width={24}
+                                            height={24}
                                             className="w-6 h-6 object-contain mr-3"
                                         />
                                         <span className="text-gray-300 text-sm">{tech.name}</span>
@@ -635,9 +646,11 @@ export default function Home() {
                                         className="backend-item flex items-center opacity-0"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
+                                            width={24}
+                                            height={24}
                                             className="w-6 h-6 object-contain mr-3"
                                         />
                                         <span className="text-gray-300 text-sm">{tech.name}</span>
@@ -659,9 +672,11 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
+                                            width={24}
+                                            height={24}
                                             className="w-6 h-6 object-contain mr-3"
                                         />
                                         <span className="text-gray-300 text-sm">{tech.name}</span>
@@ -683,9 +698,11 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
+                                            width={24}
+                                            height={24}
                                             className="w-6 h-6 object-contain mr-3"
                                         />
                                         <span className="text-gray-300 text-sm">{tech.name}</span>
@@ -707,9 +724,11 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
+                                            width={24}
+                                            height={24}
                                             className="w-6 h-6 object-contain mr-3"
                                         />
                                         <span className="text-gray-300 text-sm">{tech.name}</span>
@@ -726,7 +745,7 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Featured Projects</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Some of my recent work that I'm proud of</p>
+                        <p className="text-gray-400 max-w-2xl mx-auto">Some of my recent work that I&apos;m proud of</p>
                         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4"></div>
                     </div>
 
@@ -737,9 +756,11 @@ export default function Home() {
                             className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-primary transition-all duration-300"
                         >
                             <div className="relative h-48 overflow-hidden">
-                                <img
+                                <Image
                                     src="/Hotel.png"
                                     alt="Restaurant POS System"
+                                    width={500}
+                                    height={300}
                                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -840,9 +861,11 @@ export default function Home() {
                                 className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-primary transition-all duration-300"
                             >
                                 <div className="relative h-64 overflow-hidden">
-                                    <img
+                                    <Image
                                         src={tgBot}
                                         alt="ShopBot E-commerce Bot"
+                                        width={500}
+                                        height={400}
                                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -884,7 +907,7 @@ export default function Home() {
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-white mb-2">Other Projects</h3>
-                                    <p className="text-gray-300 text-sm">Various applications and websites I've developed.</p>
+                                    <p className="text-gray-300 text-sm">Various applications and websites I&apos;ve developed.</p>
                                 </div>
                             </motion.div>
                         </div>
@@ -994,7 +1017,7 @@ export default function Home() {
                                         id="message" 
                                         rows="5" 
                                         className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                                        placeholder="Hello, I'd like to talk about..."
+                                        placeholder="Hello, I&apos;d like to talk about..."
                                     ></textarea>
                                 </div>
                                 
@@ -1068,9 +1091,11 @@ export default function Home() {
                         
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="relative h-96 lg:h-auto">
-                                <img
+                                <Image
                                     src="/Hotel.png"
                                     alt="Restaurant POS System"
+                                    width={800}
+                                    height={600}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -1287,9 +1312,11 @@ export default function Home() {
                         
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="relative h-96 lg:h-auto">
-                                <img
+                                <Image
                                     src={tgBot}
                                     alt="ShopBot E-commerce Bot"
+                                    width={800}
+                                    height={600}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
@@ -1387,7 +1414,7 @@ export default function Home() {
                                     id="popup-message" 
                                     rows="4" 
                                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                                    placeholder="Hello, I'd like to talk about..."
+                                    placeholder="Hello, I&apos;d like to talk about..."
                                 ></textarea>
                             </div>
                             
