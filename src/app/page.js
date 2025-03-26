@@ -440,7 +440,7 @@ export default function Home() {
                         >
                             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-30 animate-pulse"></div>
-                                <Image
+                                <img
                                     src="/Bggggpng.png"
                                     alt="Surafel Kassahun"
                                     className="relative w-full h-full object-cover rounded-full border-4 border-gray-800 shadow-2xl z-10 transition-transform duration-500 hover:scale-105"
@@ -481,7 +481,7 @@ export default function Home() {
                                     
                                     <div className={`bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700 transition-all duration-300 hover:border-primary ${cardStates[item.key] ? 'h-auto' : 'h-64 overflow-hidden'}`}>
                                         <div className="flex items-center mb-4">
-                                            <Image 
+                                            <img 
                                                 src={item.image} 
                                                 alt={item.title} 
                                                 className="w-16 h-16 object-contain mr-4"
@@ -540,7 +540,7 @@ export default function Home() {
                                 className="bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700"
                             >
                                 <div className="flex items-center mb-4">
-                                    <Image 
+                                    <img 
                                         src={item.image} 
                                         alt={item.title} 
                                         className="w-16 h-16 object-contain mr-4"
@@ -583,7 +583,7 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Technical Skills</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Technologies Ive worked with to create amazing digital experiences</p>
+                        <p className="text-gray-400 max-w-2xl mx-auto">Technologies I've worked with to create amazing digital experiences</p>
                         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4"></div>
                     </div>
 
@@ -606,7 +606,7 @@ export default function Home() {
                                         className="frontend-item flex items-center opacity-0"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <Image 
+                                        <img 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -635,7 +635,7 @@ export default function Home() {
                                         className="backend-item flex items-center opacity-0"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <Image 
+                                        <img 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -659,7 +659,7 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <Image 
+                                        <img 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -683,7 +683,7 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <Image 
+                                        <img 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -707,7 +707,7 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <Image 
+                                        <img 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -726,7 +726,7 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Featured Projects</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Some of my recent work that Im proud of</p>
+                        <p className="text-gray-400 max-w-2xl mx-auto">Some of my recent work that I'm proud of</p>
                         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4"></div>
                     </div>
 
@@ -737,7 +737,7 @@ export default function Home() {
                             className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-primary transition-all duration-300"
                         >
                             <div className="relative h-48 overflow-hidden">
-                                <Image
+                                <img
                                     src="/Hotel.png"
                                     alt="Restaurant POS System"
                                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
@@ -840,7 +840,7 @@ export default function Home() {
                                 className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-primary transition-all duration-300"
                             >
                                 <div className="relative h-64 overflow-hidden">
-                                    <Image
+                                    <img
                                         src={tgBot}
                                         alt="ShopBot E-commerce Bot"
                                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
@@ -884,7 +884,7 @@ export default function Home() {
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-white mb-2">Other Projects</h3>
-                                    <p className="text-gray-300 text-sm">Various applications and websites Ive developed.</p>
+                                    <p className="text-gray-300 text-sm">Various applications and websites I've developed.</p>
                                 </div>
                             </motion.div>
                         </div>
@@ -994,7 +994,7 @@ export default function Home() {
                                         id="message" 
                                         rows="5" 
                                         className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                                        placeholder="Hello, Id like to talk about..."
+                                        placeholder="Hello, I'd like to talk about..."
                                     ></textarea>
                                 </div>
                                 
@@ -1068,7 +1068,7 @@ export default function Home() {
                         
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="relative h-96 lg:h-auto">
-                                <Image
+                                <img
                                     src="/Hotel.png"
                                     alt="Restaurant POS System"
                                     className="w-full h-full object-cover"
@@ -1287,7 +1287,7 @@ export default function Home() {
                         
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="relative h-96 lg:h-auto">
-                                <Image
+                                <img
                                     src={tgBot}
                                     alt="ShopBot E-commerce Bot"
                                     className="w-full h-full object-cover"
@@ -1387,7 +1387,7 @@ export default function Home() {
                                     id="popup-message" 
                                     rows="4" 
                                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                                    placeholder="Hello, Id like to talk about..."
+                                    placeholder="Hello, I'd like to talk about..."
                                 ></textarea>
                             </div>
                             
