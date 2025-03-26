@@ -583,7 +583,7 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Technical Skills</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Technologies I've worked with to create amazing digital experiences</p>
+                        <p className="text-gray-400 max-w-2xl mx-auto">Technologies Ive worked with to create amazing digital experiences</p>
                         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4"></div>
                     </div>
 
@@ -726,7 +726,7 @@ export default function Home() {
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary">Featured Projects</h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto">Some of my recent work that I'm proud of</p>
+                        <p className="text-gray-400 max-w-2xl mx-auto">Some of my recent work that Im proud of</p>
                         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-4"></div>
                     </div>
 
@@ -884,7 +884,7 @@ export default function Home() {
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-white mb-2">Other Projects</h3>
-                                    <p className="text-gray-300 text-sm">Various applications and websites I've developed.</p>
+                                    <p className="text-gray-300 text-sm">Various applications and websites Ive developed.</p>
                                 </div>
                             </motion.div>
                         </div>
@@ -994,7 +994,7 @@ export default function Home() {
                                         id="message" 
                                         rows="5" 
                                         className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                                        placeholder="Hello, I'd like to talk about..."
+                                        placeholder="Hello, Id like to talk about..."
                                     ></textarea>
                                 </div>
                                 
@@ -1387,7 +1387,7 @@ export default function Home() {
                                     id="popup-message" 
                                     rows="4" 
                                     className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                                    placeholder="Hello, I'd like to talk about..."
+                                    placeholder="Hello, Id like to talk about..."
                                 ></textarea>
                             </div>
                             
