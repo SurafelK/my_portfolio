@@ -440,7 +440,7 @@ export default function Home() {
                         >
                             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-30 animate-pulse"></div>
-                                <img
+                                <Image
                                     src="/Bggggpng.png"
                                     alt="Surafel Kassahun"
                                     className="relative w-full h-full object-cover rounded-full border-4 border-gray-800 shadow-2xl z-10 transition-transform duration-500 hover:scale-105"
@@ -481,7 +481,7 @@ export default function Home() {
                                     
                                     <div className={`bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700 transition-all duration-300 hover:border-primary ${cardStates[item.key] ? 'h-auto' : 'h-64 overflow-hidden'}`}>
                                         <div className="flex items-center mb-4">
-                                            <img 
+                                            <Image 
                                                 src={item.image} 
                                                 alt={item.title} 
                                                 className="w-16 h-16 object-contain mr-4"
@@ -540,7 +540,7 @@ export default function Home() {
                                 className="bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-700"
                             >
                                 <div className="flex items-center mb-4">
-                                    <img 
+                                    <Image 
                                         src={item.image} 
                                         alt={item.title} 
                                         className="w-16 h-16 object-contain mr-4"
@@ -606,7 +606,7 @@ export default function Home() {
                                         className="frontend-item flex items-center opacity-0"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -635,7 +635,7 @@ export default function Home() {
                                         className="backend-item flex items-center opacity-0"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -659,7 +659,7 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -683,7 +683,7 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -707,7 +707,7 @@ export default function Home() {
                                         className="flex items-center"
                                         whileHover={{ scale: 1.05 }}
                                     >
-                                        <img 
+                                        <Image 
                                             src={tech.src} 
                                             alt={tech.name} 
                                             className="w-6 h-6 object-contain mr-3"
@@ -737,7 +737,7 @@ export default function Home() {
                             className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-primary transition-all duration-300"
                         >
                             <div className="relative h-48 overflow-hidden">
-                                <img
+                                <Image
                                     src="/Hotel.png"
                                     alt="Restaurant POS System"
                                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
@@ -840,7 +840,7 @@ export default function Home() {
                                 className="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 hover:border-primary transition-all duration-300"
                             >
                                 <div className="relative h-64 overflow-hidden">
-                                    <img
+                                    <Image
                                         src={tgBot}
                                         alt="ShopBot E-commerce Bot"
                                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
@@ -1068,7 +1068,7 @@ export default function Home() {
                         
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="relative h-96 lg:h-auto">
-                                <img
+                                <Image
                                     src="/Hotel.png"
                                     alt="Restaurant POS System"
                                     className="w-full h-full object-cover"
@@ -1287,7 +1287,7 @@ export default function Home() {
                         
                         <div className="grid grid-cols-1 lg:grid-cols-2">
                             <div className="relative h-96 lg:h-auto">
-                                <img
+                                <Image
                                     src={tgBot}
                                     alt="ShopBot E-commerce Bot"
                                     className="w-full h-full object-cover"
