@@ -3,38 +3,52 @@ import "./globals.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "700"], // Add the weights you need
+  weight: ["400", "700"],
+  display: "swap", // Add for better font loading
 });
 
 export const metadata = {
-  title: "Surafel - Full Stack Developer",
+  title: "Surafel Kassahun - Full Stack Developer",
   description: "Full Stack Developer skilled in building dynamic web applications. Check out my projects, skills, and passion for technology!",
-  image: "/path/to/your/image.jpg", // Replace with the actual image path for social sharing
-  url: "https://surafelkportfolio.vercel.app/", // Ensure this is the correct URL
+  metadataBase: new URL("https://surafelkportfolio.vercel.app"), // Base URL for all metadata
+  openGraph: {
+    title: "Surafel Kassahun - Full Stack Developer",
+    description: "Professional portfolio showcasing my web development projects and skills",
+    url: "https://surafelkportfolio.vercel.app",
+    siteName: "Surafel's Portfolio",
+    images: [
+      {
+        url: "/og-image.jpg", // Replace with your actual OG image path
+        width: 1200,
+        height: 630,
+        alt: "Surafel Kassahun Portfolio",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surafel Kassahun - Full Stack Developer",
+    description: "Professional portfolio showcasing my web development projects and skills",
+    images: ["/twitter-image.jpg"], // Replace with your actual Twitter image path
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth"> {/* Added smooth scrolling */}
       <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta property="og:title" content={metadata.title} />
-        <meta property="og:description" content={metadata.description} />
-        <meta property="og:image" content={metadata.image} />
-        <meta property="og:url" content={metadata.url} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={metadata.title} />
-        <meta name="twitter:description" content={metadata.description} />
-        <meta name="twitter:image" content={metadata.image} />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={roboto.className} style={{ backgroundColor: '#051622' }}>
-        <main className="w-full mx-auto p-4">
+      <body className={`${roboto.className} bg-[#051622] text-white`}>
+        <main className="min-h-screen w-full mx-auto">
           {children}
         </main>
-    
       </body>
     </html>
   );
