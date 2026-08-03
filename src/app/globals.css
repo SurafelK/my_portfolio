@@ -2,3 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) scale(1);
+    opacity: .2;
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.4);
+    opacity: .8;
+  }
+
+  100% {
+    transform: translateY(0px) scale(1);
+    opacity: .2;
+  }
+}
+
+.animate-float {
+  animation: floatParticle 6s ease-in-out infinite;
+}
+
+/* Animation for news cards */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Smooth scroll behavior */
+.news-container {
+    scroll-behavior: smooth;
+}
+
+/* Modal backdrop blur */
+.backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Custom scrollbar for modal */
+.overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.5);
+    border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    border-radius: 3px;
+}

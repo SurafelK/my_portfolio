@@ -16,7 +16,7 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-
+import News from "@/app/components/News";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
@@ -772,262 +772,445 @@ export default function Home() {
                 </div>
             </section>
 
+        
+
             {/* Projects Section */}
-            <section id="projects" className="py-32 relative">
-                {/* Background pattern */}
-                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
+       <section id="projects" className="py-32 relative overflow-hidden">
+            {/* Enhanced Background with animated gradient */}
+            <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+            
+            {/* Animated floating particles */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            </div>
+
+            <div className="container mx-auto px-4 md:px-8 relative z-10">
+                {/* Enhanced Header */}
+                <div className="text-center mb-20">
+                <div className="inline-flex items-center gap-3 mb-6">
+                    <div className="w-12 h-px bg-gradient-to-r from-transparent to-primary"></div>
+                    <span className="text-primary font-semibold tracking-widest text-sm uppercase flex items-center gap-2">
+                    <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+                    Portfolio
+                    </span>
+                    <div className="w-12 h-px bg-gradient-to-r from-primary to-transparent"></div>
+                </div>
                 
-                <div className="container mx-auto px-4 md:px-8 relative z-10">
-                    <div className="text-center mb-20">
-                        <div className="inline-flex items-center gap-3 mb-6">
-                            <div className="w-12 h-px bg-gradient-to-r from-transparent to-primary"></div>
-                            <span className="text-primary font-semibold tracking-widest text-sm uppercase">My Work</span>
-                            <div className="w-12 h-px bg-gradient-to-r from-primary to-transparent"></div>
-                        </div>
-                        
-                        <h2 className="text-4xl md:text-6xl font-bold mb-6">
-                            <span className="bg-gradient-to-r from-white via-primary to-white bg-clip-text text-transparent">
-                                Featured
-                            </span>
-                            <br />
-                            <span className="bg-gradient-to-r from-primary via-white to-primary bg-clip-text text-transparent">
-                                Projects
-                            </span>
-                        </h2>
-                        
-                        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                            A showcase of my recent work, highlighting innovative solutions and modern design
-                        </p>
+                <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    <span className="bg-gradient-to-r from-white via-primary to-white bg-clip-text text-transparent">
+                    Featured
+                    </span>
+                    <br />
+                    <span className="bg-gradient-to-r from-primary via-white to-primary bg-clip-text text-transparent">
+                    Projects
+                    </span>
+                </h2>
+                
+                <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                    A curated collection of innovative solutions demonstrating expertise in 
+                    <span className="text-white font-medium"> full-stack development</span>, 
+                    <span className="text-white font-medium"> UI/UX design</span>, and 
+                    <span className="text-white font-medium"> scalable architecture</span>
+                </p>
+
+                {/* Quick stats */}
+                <div className="flex flex-wrap justify-center gap-8 mt-8">
+                    <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
+                    <span className="text-2xl font-bold text-primary">4+</span>
+                    <span className="text-gray-400 text-sm">Live Projects</span>
                     </div>
-
-                    {/* Projects Grid */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-                        {/* Project 1 - POS System */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                            className="group"
-                        >
-                            <div className="relative bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                
-                                <div className="relative p-1">
-                                    <div className="relative h-64 lg:h-80 overflow-hidden rounded-2xl">
-                                        <Image
-                                            src="/Hotel.png"
-                                            alt="Restaurant POS System"
-                                            width={800}
-                                            height={600}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent"></div>
-                                    </div>
-                                    
-                                    <div className="p-8">
-                                        <div className="flex items-center justify-between mb-4">
-                                            <h3 className="text-2xl font-bold text-white">Restaurant POS System</h3>
-                                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors" size={20} />
-                                        </div>
-                                        
-                                        <p className="text-gray-400 mb-6">
-                                            A comprehensive point-of-sale system built with Electron and MERN stack, featuring real-time inventory management, order processing, and analytics.
-                                        </p>
-                                        
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Electron</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">React</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Node.js</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">MongoDB</span>
-                                        </div>
-                                        
-                                        <button
-                                            onClick={toggleModal}
-                                            className="px-6 py-3 bg-gray-800 hover:bg-primary text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                                        >
-                                            View Project Details
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Project 2 - AVL System */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="group"
-                        >
-                            <div className="relative bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                
-                                <div className="relative p-1">
-                                    <div className="relative h-64 lg:h-80 overflow-hidden rounded-2xl bg-gray-900">
-                                        <iframe
-                                            src="https://avl-swim.vercel.app/"
-                                            className="w-full h-full"
-                                            title="AVL System"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent"></div>
-                                    </div>
-                                    
-                                    <div className="p-8">
-                                        <div className="flex items-center justify-between mb-4">
-                                            <h3 className="text-2xl font-bold text-white">AVL System</h3>
-                                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors" size={20} />
-                                        </div>
-                                        
-                                        <p className="text-gray-400 mb-6">
-                                            A modern web application for Araya Venture Lab featuring data visualization, real-time analytics, and an intuitive dashboard interface.
-                                        </p>
-                                        
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Next.js</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Tailwind CSS</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">TypeScript</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Framer Motion</span>
-                                        </div>
-                                        
-                                        <button
-                                            onClick={() => setIsAVLOpen(true)}
-                                            className="px-6 py-3 bg-gray-800 hover:bg-primary text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                                        >
-                                            View Project Details
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Project 3 - Theraderm */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                            viewport={{ once: true }}
-                            className="group"
-                        >
-                            <div className="relative bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                
-                                <div className="relative p-1">
-                                    <div className="relative h-64 lg:h-80 overflow-hidden rounded-2xl bg-gray-900">
-                                        <iframe
-                                            src="https://www.theradermethiopia.com/"
-                                            className="w-full h-full"
-                                            title="Theraderm Ethiopia"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent"></div>
-                                    </div>
-                                    
-                                    <div className="p-8">
-                                        <div className="flex items-center justify-between mb-4">
-                                            <h3 className="text-2xl font-bold text-white">Theraderm Ethiopia</h3>
-                                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors" size={20} />
-                                        </div>
-                                        
-                                        <p className="text-gray-400 mb-6">
-                                            Professional medical website with appointment booking system, service catalog, and responsive design for optimal user experience.
-                                        </p>
-                                        
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">React</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Tailwind CSS</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Next.js</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Sanity CMS</span>
-                                        </div>
-                                        
-                                        <button
-                                            onClick={() => setisTheradermOpen(true)}
-                                            className="px-6 py-3 bg-gray-800 hover:bg-primary text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                                        >
-                                            View Project Details
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Project 4 - ShopBot */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
-                            viewport={{ once: true }}
-                            className="group"
-                        >
-                            <div className="relative bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                
-                                <div className="relative p-1">
-                                    <div className="relative h-64 lg:h-80 overflow-hidden rounded-2xl">
-                                        <Image
-                                            src="/shop.jpg"
-                                            alt="ShopBot E-commerce"
-                                            width={800}
-                                            height={600}
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-transparent"></div>
-                                    </div>
-                                    
-                                    <div className="p-8">
-                                        <div className="flex items-center justify-between mb-4">
-                                            <h3 className="text-2xl font-bold text-white">ShopBot E-commerce</h3>
-                                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors" size={20} />
-                                        </div>
-                                        
-                                        <p className="text-gray-400 mb-6">
-                                            Telegram-based shopping bot with integrated payments, location-based delivery, and real-time order tracking.
-                                        </p>
-                                        
-                                        <div className="flex flex-wrap gap-2 mb-6">
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Node.js</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">MongoDB</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Telegram API</span>
-                                            <span className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full border border-primary/20">Santimpay</span>
-                                        </div>
-                                        
-                                        <button
-                                            onClick={() => setIsShopBot(true)}
-                                            className="px-6 py-3 bg-gray-800 hover:bg-primary text-white rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                                        >
-                                            View Project Details
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
+                    <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
+                    <span className="text-2xl font-bold text-primary">12+</span>
+                    <span className="text-gray-400 text-sm">Technologies Used</span>
                     </div>
-
-                    {/* View More Button */}
-                    <div className="text-center">
-                        <button
-                            onClick={toggleProjects}
-                            className="group relative px-8 py-4 bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl font-medium overflow-hidden transition-all duration-500 hover:border-primary"
-                        >
-                            <span className="relative z-10 flex items-center justify-center gap-3">
-                                {projects ? (
-                                    <>
-                                        <ChevronUp className="w-5 h-5" />
-                                        Show Less Projects
-                                    </>
-                                ) : (
-                                    <>
-                                        <Layers className="w-5 h-5" />
-                                        View All Projects
-                                    </>
-                                )}
-                            </span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        </button>
+                    <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm px-6 py-3 rounded-full border border-white/10">
+                    <span className="text-2xl font-bold text-primary">100%</span>
+                    <span className="text-gray-400 text-sm">Client Satisfaction</span>
                     </div>
                 </div>
-            </section>
+                </div>
 
+                <News/>
+
+                {/* Projects Grid with improved cards */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                {/* Project 1 - POS System */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="group h-full"
+                >
+                    <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 h-full flex flex-col">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative p-1 flex-1 flex flex-col">
+                        {/* Project Image with overlay */}
+                        <div className="relative h-64 lg:h-72 overflow-hidden rounded-2xl flex-shrink-0">
+                        <Image
+                            src="/Hotel.png"
+                            alt="Restaurant POS System - Complete restaurant management solution"
+                            width={800}
+                            height={600}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent"></div>
+                        
+                        {/* Tech stack badge on image */}
+                        <div className="absolute bottom-4 left-4 flex gap-2">
+                            <span className="px-3 py-1 bg-black/60 backdrop-blur-sm text-white text-xs rounded-full border border-white/10">
+                            🚀 Production Ready
+                            </span>
+                        </div>
+                        </div>
+                        
+                        <div className="p-8 flex-1 flex flex-col">
+                        {/* Header with title and link */}
+                        <div className="flex items-start justify-between mb-3">
+                            <div>
+                            <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                                Full Stack
+                                </span>
+                                <span className="text-xs font-mono text-gray-500 bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700">
+                                2024
+                                </span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                                Restaurant POS System
+                            </h3>
+                            </div>
+                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0 mt-1" size={20} />
+                        </div>
+                        
+                        <p className="text-gray-400 mb-6 leading-relaxed flex-1">
+                            A comprehensive point-of-sale system with real-time inventory management, 
+                            order processing, and advanced analytics. Designed for high-volume restaurants.
+                        </p>
+                        
+                        {/* Key features highlight */}
+                        <div className="grid grid-cols-3 gap-2 mb-6 bg-white/5 rounded-xl p-3 border border-white/5">
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">500+</div>
+                            <div className="text-gray-500 text-xs">Daily Orders</div>
+                            </div>
+                            <div className="text-center border-l border-r border-white/10">
+                            <div className="text-primary font-bold text-sm">99.9%</div>
+                            <div className="text-gray-500 text-xs">Uptime</div>
+                            </div>
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">Real-time</div>
+                            <div className="text-gray-500 text-xs">Analytics</div>
+                            </div>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Electron</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">React</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Node.js</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">MongoDB</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">WebSockets</span>
+                        </div>
+                        
+                        <button
+                            onClick={toggleModal}
+                            className="w-full px-6 py-3.5 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-primary hover:to-primary/80 text-white rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2"
+                        >
+                            <span>View Project Details</span>
+                            <span className="text-xs">→</span>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                </motion.div>
+
+                {/* Project 2 - AVL System */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="group h-full"
+                >
+                    <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 h-full flex flex-col">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative p-1 flex-1 flex flex-col">
+                        <div className="relative h-64 lg:h-72 overflow-hidden rounded-2xl bg-gray-900 flex-shrink-0">
+                        <iframe
+                            src="https://avl-swim.vercel.app/"
+                            className="w-full h-full"
+                            title="AVL System - Venture Lab Dashboard"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent"></div>
+                        
+                        <div className="absolute bottom-4 left-4 flex gap-2">
+                            <span className="px-3 py-1 bg-black/60 backdrop-blur-sm text-white text-xs rounded-full border border-white/10">
+                            🌐 Live Demo
+                            </span>
+                        </div>
+                        </div>
+                        
+                        <div className="p-8 flex-1 flex flex-col">
+                        <div className="flex items-start justify-between mb-3">
+                            <div>
+                            <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                                Web App
+                                </span>
+                                <span className="text-xs font-mono text-gray-500 bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700">
+                                2024
+                                </span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                                AVL System
+                            </h3>
+                            </div>
+                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0 mt-1" size={20} />
+                        </div>
+                        
+                        <p className="text-gray-400 mb-6 leading-relaxed flex-1">
+                            A modern venture lab management platform with real-time data visualization, 
+                            interactive dashboards, and comprehensive analytics for startup monitoring.
+                        </p>
+                        
+                        <div className="grid grid-cols-3 gap-2 mb-6 bg-white/5 rounded-xl p-3 border border-white/5">
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">Real-time</div>
+                            <div className="text-gray-500 text-xs">Analytics</div>
+                            </div>
+                            <div className="text-center border-l border-r border-white/10">
+                            <div className="text-primary font-bold text-sm">Responsive</div>
+                            <div className="text-gray-500 text-xs">Design</div>
+                            </div>
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">Interactive</div>
+                            <div className="text-gray-500 text-xs">Charts</div>
+                            </div>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Next.js 14</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Tailwind</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">TypeScript</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Framer Motion</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Recharts</span>
+                        </div>
+                        
+                        <button
+                            onClick={() => setIsAVLOpen(true)}
+                            className="w-full px-6 py-3.5 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-primary hover:to-primary/80 text-white rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2"
+                        >
+                            <span>View Project Details</span>
+                            <span className="text-xs">→</span>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                </motion.div>
+
+                {/* Project 3 - Theraderm */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                    viewport={{ once: true }}
+                    className="group h-full"
+                >
+                    <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 h-full flex flex-col">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative p-1 flex-1 flex flex-col">
+                        <div className="relative h-64 lg:h-72 overflow-hidden rounded-2xl bg-gray-900 flex-shrink-0">
+                        <iframe
+                            src="https://www.theradermethiopia.com/"
+                            className="w-full h-full"
+                            title="Theraderm Ethiopia - Medical Website"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent"></div>
+                        
+                        <div className="absolute bottom-4 left-4 flex gap-2">
+                            <span className="px-3 py-1 bg-black/60 backdrop-blur-sm text-white text-xs rounded-full border border-white/10">
+                            🏥 Healthcare
+                            </span>
+                        </div>
+                        </div>
+                        
+                        <div className="p-8 flex-1 flex flex-col">
+                        <div className="flex items-start justify-between mb-3">
+                            <div>
+                            <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                                CMS
+                                </span>
+                                <span className="text-xs font-mono text-gray-500 bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700">
+                                2024
+                                </span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                                Theraderm Ethiopia
+                            </h3>
+                            </div>
+                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0 mt-1" size={20} />
+                        </div>
+                        
+                        <p className="text-gray-400 mb-6 leading-relaxed flex-1">
+                            Professional healthcare platform with integrated appointment booking, 
+                            comprehensive service catalog, and seamless patient management system.
+                        </p>
+                        
+                        <div className="grid grid-cols-3 gap-2 mb-6 bg-white/5 rounded-xl p-3 border border-white/5">
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">Booking</div>
+                            <div className="text-gray-500 text-xs">System</div>
+                            </div>
+                            <div className="text-center border-l border-r border-white/10">
+                            <div className="text-primary font-bold text-sm">Responsive</div>
+                            <div className="text-gray-500 text-xs">Design</div>
+                            </div>
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">SEO</div>
+                            <div className="text-gray-500 text-xs">Optimized</div>
+                            </div>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">React</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Next.js</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Sanity</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Tailwind</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">TypeScript</span>
+                        </div>
+                        
+                        <button
+                            onClick={() => setisTheradermOpen(true)}
+                            className="w-full px-6 py-3.5 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-primary hover:to-primary/80 text-white rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2"
+                        >
+                            <span>View Project Details</span>
+                            <span className="text-xs">→</span>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                </motion.div>
+
+                {/* Project 4 - ShopBot */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                    className="group h-full"
+                >
+                    <div className="relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-800 rounded-3xl overflow-hidden hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 h-full flex flex-col">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    <div className="relative p-1 flex-1 flex flex-col">
+                        <div className="relative h-64 lg:h-72 overflow-hidden rounded-2xl flex-shrink-0">
+                        <Image
+                            src="/shop.jpg"
+                            alt="ShopBot E-commerce - Telegram Shopping Bot"
+                            width={800}
+                            height={600}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/60 to-transparent"></div>
+                        
+                        <div className="absolute bottom-4 left-4 flex gap-2">
+                            <span className="px-3 py-1 bg-black/60 backdrop-blur-sm text-white text-xs rounded-full border border-white/10">
+                            🤖 Automation
+                            </span>
+                        </div>
+                        </div>
+                        
+                        <div className="p-8 flex-1 flex flex-col">
+                        <div className="flex items-start justify-between mb-3">
+                            <div>
+                            <div className="flex items-center gap-2 mb-2">
+                                <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                                Bot
+                                </span>
+                                <span className="text-xs font-mono text-gray-500 bg-gray-800/50 px-3 py-1 rounded-full border border-gray-700">
+                                2024
+                                </span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors">
+                                ShopBot E-commerce
+                            </h3>
+                            </div>
+                            <ExternalLink className="text-gray-400 group-hover:text-primary transition-colors flex-shrink-0 mt-1" size={20} />
+                        </div>
+                        
+                        <p className="text-gray-400 mb-6 leading-relaxed flex-1">
+                            Innovative Telegram-based shopping solution with integrated payments, 
+                            location-based delivery tracking, and automated order management system.
+                        </p>
+                        
+                        <div className="grid grid-cols-3 gap-2 mb-6 bg-white/5 rounded-xl p-3 border border-white/5">
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">Telegram</div>
+                            <div className="text-gray-500 text-xs">Integration</div>
+                            </div>
+                            <div className="text-center border-l border-r border-white/10">
+                            <div className="text-primary font-bold text-sm">Real-time</div>
+                            <div className="text-gray-500 text-xs">Tracking</div>
+                            </div>
+                            <div className="text-center">
+                            <div className="text-primary font-bold text-sm">Payment</div>
+                            <div className="text-gray-500 text-xs">Gateway</div>
+                            </div>
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 mb-6">
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Node.js</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">MongoDB</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Telegram API</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Santimpay</span>
+                            <span className="px-3 py-1.5 bg-primary/10 text-primary text-sm rounded-full border border-primary/20 font-medium">Redis</span>
+                        </div>
+                        
+                        <button
+                            onClick={() => setIsShopBot(true)}
+                            className="w-full px-6 py-3.5 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-primary hover:to-primary/80 text-white rounded-xl font-medium transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 flex items-center justify-center gap-2"
+                        >
+                            <span>View Project Details</span>
+                            <span className="text-xs">→</span>
+                        </button>
+                        </div>
+                    </div>
+                    </div>
+                </motion.div>
+                </div>
+
+                {/* Enhanced View All Button */}
+                <div className="text-center">
+                <button
+                    onClick={toggleProjects}
+                    className="group relative px-10 py-5 bg-gradient-to-r from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-800 rounded-2xl font-medium overflow-hidden transition-all duration-500 hover:border-primary hover:shadow-xl hover:shadow-primary/20"
+                >
+                    <span className="relative z-10 flex items-center justify-center gap-3 text-white">
+                    {projects ? (
+                        <>
+                        <ChevronUp className="w-5 h-5" />
+                        <span>Show Less Projects</span>
+                        </>
+                    ) : (
+                        <>
+                        <Layers className="w-5 h-5" />
+                        <span>Explore All Projects</span>
+                        <span className="text-sm text-gray-400">(8+ total)</span>
+                        </>
+                    )}
+                    </span>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 border border-primary/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </button>
+                </div>
+            </div>
+            </section>
             {/* Expanded Projects Section */}
             {projects && (
                 <div className="py-20 bg-gray-950/50">
